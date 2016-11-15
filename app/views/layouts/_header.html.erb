@@ -1,0 +1,145 @@
+<header class="header">
+  <div class="top-block">
+    <div id="stuck" class="top-menu scroll-fix" style="width  :1301px">
+        <div class="container">
+          <nav id="top-links" class="nav">
+            <ul class="list-inline">
+              <li><a href="">My account</a></li>
+              
+              <li><a href="" id="wishlist-total" title="My wishlist"><span>My wishlist</span></a></li>
+              
+              <li><a href="" title="Checkout"><span>Checkout</span></a> </li>
+              
+              <li><a href="/login"><span>Log in</span></a></li>
+            </ul>
+          </nav>
+          
+        </div>
+    </div>
+
+    <div id="stuck" class="top-menu" style="visibility: hidden; height: 39px;">
+      
+    </div>
+    <div class="container">
+      <div id="logo" class="logo">    
+        <a href="/">
+        <img src="http://livedemo00.template-help.com/opencart_55697_v1/image/catalog/logo.png" title="Flowers Store" alt="Flowers Store" class="img-responsive"></a>
+      </div>
+
+
+      <div class="box-cart">
+        <div id="cart" class="cart">
+          <button type="button" data-toggle="dropdown" data-loading-text="Loading..." class="dropdown-toggle">
+            <i class="fa fa-cart-arrow-down fa-4x" aria-hidden="true"></i>            
+            
+          </button>
+          <ul class="dropdown-menu">
+            <li class="default-tx">
+              <p>Your shopping cart is empty!</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="stuck" class="stuck-menu">
+        <div class="navigation">
+          <div class="container">
+            <div class="megamenu">
+              <ul class="sf-menu sf-js-enabled sf-arrows">
+
+                <li>
+                  <a href="">Corporate</a>
+                </li>
+
+                <li class="sf-with-mega">
+                  <a href="" class="sf-with-ul">Love &amp; Romance</a>
+
+                  <ul class="sf-mega" style="display: none;">
+                    <li class="sf-mega_row" style="opacity: 0;">
+                      <div class="sf-mega_section" style="width: 33%">
+                        <div class="submenu_title">
+                          <a href="">Flower types </a>
+                        </div>
+                        <ul>
+                          <li>
+                            <a href="">Herbarium</a>
+                          </li>
+                          <li>
+                            <a href="">Tulips</a>
+                          </li>
+                          <li>
+                            <a href="">Green roses</a>
+                          </li>
+                        </ul> 
+                      </div>
+                      <div class="sf-mega_section" style="width: 33%">
+                        <div class="submenu_title">
+                          <a href="">Kinds of flowers </a>
+                        </div>
+                        <ul>
+                          <li>
+                            <a href="">Lily</a>
+                          </li>
+                          <li>
+                            <a href="">Fragrant climbers</a>
+                          </li>
+                          <li>
+                            <a href="">Orchids</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="sf-mega_section" style="width: 33%">
+                        <div class="submenu_title">
+                          <a href="">Annual plants </a>
+                        </div>
+                        <ul>
+                          <li>
+                            <a href="">Orchids</a>
+                          </li>
+                          <li>
+                            <a href="">Asiatic Lily</a>
+                          </li>
+                          <li>
+                            <a href="">Modern roses</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="">Sympathy</a>
+                </li>
+                <li>
+                  <a href="">New Baby</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+            <script>
+              ;(function ($) {
+                $(window).load(function () {
+                  var o = $('.sf-menu');
+                  o.superfish();
+                  o.find('li a').each(function () {
+                    if ($(location).attr('href').indexOf($(this).attr('href')) >= 0){
+                      $(this).addClass('active');
+                      return;
+                    }
+                  })
+                  if (o.parents('aside').length){
+                    var width = $('.container').outerWidth() - $('aside').outerWidth();
+                    o.find('.sf-mega').each(function () {
+                      $(this).width(width);
+                    })
+                  }
+                });
+              })(jQuery);
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
