@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-  	
+  	@special = 
   end
   def about
   	

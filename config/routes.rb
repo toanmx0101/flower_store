@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   namespace :admin do
     get 'dashboard/home'
   end
