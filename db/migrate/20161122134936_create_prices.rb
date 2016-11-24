@@ -4,7 +4,7 @@ class CreatePrices < ActiveRecord::Migration[5.0]
       t.float :cost
       t.float :discount
       t.boolean :new
-      t.integer :product_details_id
+      t.integer :product_detail_id
       t.timestamps
     end
   end
