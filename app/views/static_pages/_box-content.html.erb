@@ -6,21 +6,26 @@
 		
 
 		<div class="image">
-			<a class="lazy lazy-loaded" style="padding-bottom: 100%" href=""> 
-				<img alt="Happy Birthday Kalanchoe Basket" title="Happy Birthday Kalanchoe Basket" class="img-responsive" data-src="http://livedemo00.template-help.com/opencart_55697_v1/image/cache/catalog/product-16-270x270.png" src="http://livedemo00.template-help.com/opencart_55697_v1/image/cache/catalog/product-16-270x270.png">
+			<a class="lazy lazy-loaded" style="padding-bottom: 100%" href="/products/<%= product.id %>"> 
+				<img alt="Happy Birthday Kalanchoe Basket" title="Happy Birthday Kalanchoe Basket" class="img-responsive" data-src="<%= product.image %>" src="<%= product.image %>">
 			</a>
 
 			<div class="stickers">
-				<div class="sale">sale</div>
+				<% if product.status == true
+        %>
+        <div class="sale">sale</div>
+        <%              
+        end
+        %>
 			</div>
 		</div>
 		<div class="caption">
 			<div class="name">
-				<a href=""><%= product_specials.name %></a>
+				<a href=""><%= product.name %></a>
 			</div>
 
 			<div class="price">
-				<span class="price-new"><%= product_specials.price %></span> <span class="price-old">$40.00</span>
+				<span class="price-new">$<%= product.price %>0</span> <span class="price-old">$40.00</span>
 			</div>
 
 			<div class="cart-button">

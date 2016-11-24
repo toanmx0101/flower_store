@@ -30,8 +30,8 @@
 # Category.create(:name => 'Sympathy',:description =>'Flowers have two unique peculiarities because they have very unbelievable appearance and unique smell. This combination makes them perfect. And this magical process of fertilization, it is a real wonder. Just imagine how simple and incredible it is when the bees pollinate flowers. Yeah, our nature is unbelievable. If you want to express your feelings without saying a word just present flowers and everything will be understood. Besides that they have other interesting features because their blossom is the main ingredient of all perfumes. They can cast a spell with their charming smell.')
 # Category.create(:name => 'New Baby',:description =>'Flowers have two unique peculiarities because they have very unbelievable appearance and unique smell. This combination makes them perfect. And this magical process of fertilization, it is a real wonder. Just imagine how simple and incredible it is when the bees pollinate flowers. Yeah, our nature is unbelievable. If you want to express your feelings without saying a word just present flowers and everything will be understood. Besides that they have other interesting features because their blossom is the main ingredient of all perfumes. They can cast a spell with their charming smell.')
 # Category.create(:name => 'Christmas',:description =>'Flowers have two unique peculiarities because they have very unbelievable appearance and unique smell. This combination makes them perfect. And this magical process of fertilization, it is a real wonder. Just imagine how simple and incredible it is when the bees pollinate flowers. Yeah, our nature is unbelievable. If you want to express your feelings without saying a word just present flowers and everything will be understood. Besides that they have other interesting features because their blossom is the main ingredient of all perfumes. They can cast a spell with their charming smell.')
-Special.create(:product_id => 1)
-Special.create(:product_id => 4)
-Special.create(:product_id => 12)
-Special.create(:product_id => 16)
-
+# Special.create(:product_id => 1)
+# Special.create(:product_id => 4)
+# Special.create(:product_id => 12)
+# Special.create(:product_id => 16)
+Featured.create(:product_id => 2)

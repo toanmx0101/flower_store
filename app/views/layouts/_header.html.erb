@@ -9,8 +9,12 @@
               <li><a href="" id="wishlist-total" title="My wishlist"><span>My wishlist</span></a></li>
               
               <li><a href="/checkout" title="Checkout"><span>Checkout</span></a> </li>
-              
-              <li><a href="/login"><span>Log in</span></a></li>
+               <% if logged_in? %>                
+               
+                  <li><a rel="nofollow" data-method="delete" href="/logout"><span>Log out</span></a> </li>  
+               <% else %>
+                  <li><%= link_to "Log in", login_path %></li>
+                <% end %>
             </ul>
             
           </nav>

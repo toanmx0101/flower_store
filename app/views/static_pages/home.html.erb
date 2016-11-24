@@ -82,8 +82,18 @@
 						<h3>Featured</h3>
 					</div>
 					<div class="box-content">
-					<p> <%= @product_specials.name %></p>
-						
+						<% @featured1.each do |product| %>
+              <%= render 'static_pages/box-content',product: product%>          
+            <% end %>
+            <% @featured2.each do |product| %>
+              <%= render 'static_pages/box-content',product: product%>          
+            <% end %>
+            <% @featured3.each do |product| %>
+              <%= render 'static_pages/box-content',product: product%>          
+            <% end %>
+            <% @featured4.each do |product| %>
+              <%= render 'static_pages/box-content',product: product%>          
+            <% end %>
 					</div>
 				</div>
 				<div class="box specials">
@@ -93,7 +103,18 @@
 						</h3>
 					</div>
 					<div class="box-content">
-					
+						<% @products.each do |product| %>
+              <%= render 'static_pages/box-content',product: product%>          
+            <% end %>
+            <% @product2.each do |product| %>
+              <%= render 'static_pages/box-content',product: product%>          
+            <% end %>
+            <% @product3.each do |product| %>
+              <%= render 'static_pages/box-content',product: product%>          
+            <% end %>
+            <% @product4.each do |product| %>
+              <%= render 'static_pages/box-content',product: product%>          
+            <% end %>
 					</div>
 				</div>
 			</div>
