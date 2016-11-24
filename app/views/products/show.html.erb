@@ -2,7 +2,7 @@
 	<ul class="breadcrumb">
 		<li><a href=""><i class="fa fa-home"></i></a></li>
 		<li class="last"><a href="" style="display: none;"></a>
-		<span>Happy Birthday Kalanchoe Basket</span></li>
+		<span><%= @product.name %></span></li>
 	</ul>
 	<div class="row">
 		<div id="content" class="col-sm-12 product_page">
@@ -14,15 +14,15 @@
 								<div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 537px;">
 									<ul id="image-additional" class="image-additional" style="width: auto; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
 										<li style="float: none; list-style: outside none none; position: relative; width: 97px; margin-bottom: 13px;">
-											<a href="#" data-image="http://livedemo00.template-help.com/opencart_55697_v1/image/cache/catalog/product-16-650x650.png" class="active">
-												<img src="http://livedemo00.template-help.com/opencart_55697_v1/image/cache/catalog/product-16-650x650.png" alt="">
+											<a href="#" data-image="<%= @product.image %>" class="active">
+												<img src="<%= @product.image %>" alt="">
 											</a>
 										</li>
 									</ul>
 									<ul id="image-additional" class="image-additional" style="width: auto; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
 										<li style="float: none; list-style: outside none none; position: relative; width: 97px; margin-bottom: 13px;">
-											<a href="#" data-image="http://livedemo00.template-help.com/opencart_55697_v1/image/cache/catalog/product-16-650x650.png" class="active">
-												<img src="http://livedemo00.template-help.com/opencart_55697_v1/image/cache/catalog/product-16-650x650.png" alt="">
+											<a href="#" data-image="<%= @product.image %>" class="active">
+												<img src="<%= @product.image %>" alt="">
 											</a>
 										</li>
 									</ul>
@@ -39,7 +39,7 @@
 											</div>
 											<div data-magnificent-viewport="product-image" class="magnificent-viewport magnificent-viewport-mode-inner" style="display: none; position: absolute; z-index: 98; overflow: hidden; height: 528px; width: 528px; left: 0px; top: 0px;">
 											<div class="inner" style="position: relative; width: 1584px; top: -96.6766px; left: -473.613px;">
-												<img src="http://livedemo00.template-help.com/opencart_55697_v1/image/cache/catalog/product-16-800x800.png">
+												<img src="<%= @product.image %>">
 											</div>
 											</div>
 										</div>
@@ -53,7 +53,7 @@
 				</div>
 				<div class="col-sm-7 col-lg-5 product_page-right">
 					<div class="general_info product-info">
-						<h2 class="product-title">Happy Birthday Kalanchoe Basket</h2>						 
+						<h2 class="product-title"><%= @product.name %></h2>						 
 						<div class="rating-section product-rating-status">
 							<div class="rating">
 								<i class="fa fa-star-o"></i>
@@ -67,18 +67,29 @@
 							</div>
 						</div>
 						<div class="price-section">
-							<span class="price-new">$32.00</span> <span class="price-old">$40.00</span>
+							<span class="price-new"><%= @product.price %></span> <span class="price-old">$40.00</span>
 							<div class="reward-block">
 							</div>
 						</div>
-						<ul class="list-unstyled product-section">
-							<li>Product Code: <span>Deluxe</span></li>
-							<li>Availability: <span class="green">600</span></li>
-						</ul>
+				
 					</div>
 					<div class="product">
 						<div class="product-options form-horizontal">
 							<h3>Available Options</h3>
+							<div class="form-group required">
+								<label class="control-label col-sm-6" for="input-option3">Size</label>
+								<div class="col-sm-6">
+								<select name="option[3]" id="input-option3" class="form-control">
+								<option value="">--- Please Select ---</option>
+								<option value="7">Small (+$15.00)
+								</option>
+								<option value="8">Medium (+$10.00)
+								</option>
+								<option value="9">Large (+$20.00)
+								</option>
+								</select>
+								</div>
+							</div>		
 							<div class="form-group required">
 								<label class="control-label col-sm-6">Checkbox</label>
 								<div class="col-sm-6">

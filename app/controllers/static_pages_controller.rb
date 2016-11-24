@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
-  	@special = Special.all
+  	@specials = Special.first
+    @product_specials = Product.where(id: @specials.product_id).all
   end
   def about
   	

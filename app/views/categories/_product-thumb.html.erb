@@ -2,10 +2,16 @@
  <div class="product-thumb">
   <div class="image">
     <a class="lazy lazy-loaded" style="padding-bottom: 100%" href="/products/<%= product.id%>"> 
-      <img alt="Autumn Shades Perfect Gift" title="Autumn Shades Perfect Gift" class="img-responsive" data-src="" src="/assets/loveandromance/product-13-270x270.png"> 
+      <img alt="Autumn Shades Perfect Gift" title="Autumn Shades Perfect Gift" class="img-responsive" data-src="" src="<%= product.image %>"> 
     </a>
     <div class="stickers">
-      <div class="sale">sale</div>
+      <% if product.status == true
+        %>
+        <div class="sale">sale</div>
+        <%              
+        end
+        %>
+      
     </div>
   </div>
   <div class="caption">
@@ -13,7 +19,7 @@
     <div class="description"></div>
     <div class="description-small"><%= product.description %></div>
     <div class="price price-product">
-      <span class="price-new">$25.60</span> <span class="price-old">$32.00</span>
+      <span class="price-new"><%= product.price %></span> <span class="price-old">$32.00</span>
     </div>
     <div class="cart-button">
       <button class="btn btn-add" type="button" onclick="cart.add('29');">
