@@ -22,6 +22,11 @@ Rails.application.routes.draw do
   delete 'logout',  to: 'sessions#destroy'
 
   get    'checkout', to: 'cart#checkout'
+  get    'checkout/step1', to: 'cart#checkout_step1'
+  get    'checkout/step2', to: 'cart#checkout_step2'
+  get    'checkout/step3', to: 'cart#checkout_step3'
+  get    'checkout/step4', to: 'cart#checkout_step4'
+  get    'checkout/step5', to: 'cart#checkout_step5'
   get    'shoppingcart', to: 'cart#index'
   resources :users
 end

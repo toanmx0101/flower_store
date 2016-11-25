@@ -1,63 +1,75 @@
-<div class="panel-collapse collapse in" id="collapse-payment-address" aria-expanded="true" style="">
-<div class="panel-body"><div class="row">
-<div class="col-sm-6">
-<fieldset id="account">
-<legend>Your Personal Details</legend>
-<div class="form-group" style="display: none;">
-<label class="control-label">Customer Group</label>
-<div class="radio">
-<label>
-<input name="customer_group_id" value="1" checked="checked" type="radio">
-Default</label>
-</div>
-</div>
-<div class="form-group required">
-<label class="control-label" for="input-payment-lastname">Name</label>
-<input name="lastname" value="" placeholder="Last Name" id="input-payment-lastname" class="form-control" type="text">
-</div>
-<div class="form-group required">
-<label class="control-label" for="input-payment-email">E-Mail</label>
-<input name="email" value="" placeholder="E-Mail" id="input-payment-email" class="form-control" type="text">
-</div>
-<div class="form-group required">
-<label class="control-label" for="input-payment-telephone">Telephone</label>
-<input name="telephone" value="" placeholder="Telephone" id="input-payment-telephone" class="form-control" type="text">
-</div>
-<div class="form-group">
-<label class="control-label" for="input-payment-fax">Fax</label>
-<input name="fax" value="" placeholder="Fax" id="input-payment-fax" class="form-control" type="text">
-</div>
-</fieldset>
-<fieldset>
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i></a></li>
+        <li><a href="shoppingcart">Shopping Cart</a></li>
+        <li class="last"><a href="/checkout" style="display: none;">Checkout</a><span>Checkout</span></li>
+
+    </ul>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">Step 2: Billing Details</h4>
+        </div>
+        <div class="panel-collapse collapse in" id="collapse-payment-address" aria-expanded="true" style="">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <fieldset id="account">
+                            <legend>Your Personal Details</legend>
+                            <div class="form-group" style="display: none;">
+                                <label class="control-label">Customer Group</label>
+                                <div class="radio">
+                                    <label>
+                                        <input name="customer_group_id" value="1" checked="checked" type="radio">
+                                    Default</label>
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label class="control-label" for="input-payment-lastname">Name</label>
+                                <input name="lastname" value="" placeholder="Last Name" id="input-payment-lastname" class="form-control" type="text">
+                            </div>
+            <div class="form-group required">
+            <label class="control-label" for="input-payment-email">E-Mail</label>
+            <input name="email" value="" placeholder="E-Mail" id="input-payment-email" class="form-control" type="text">
+            </div>
+            <div class="form-group required">
+            <label class="control-label" for="input-payment-telephone">Telephone</label>
+            <input name="telephone" value="" placeholder="Telephone" id="input-payment-telephone" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+            <label class="control-label" for="input-payment-fax">Fax</label>
+            <input name="fax" value="" placeholder="Fax" id="input-payment-fax" class="form-control" type="text">
+            </div>
+            </fieldset>
+            <fieldset>
 
 
-</fieldset>
-</div>
-<div class="col-sm-6">
-<fieldset id="address" class="required">
-<legend>Your Address</legend>
-<div class="form-group">
-<label class="control-label" for="input-payment-company">Company</label>
-<input name="company" value="" placeholder="Company" id="input-payment-company" class="form-control" type="text">
-</div>
-<div class="form-group required">
-<label class="control-label" for="input-payment-address-1">Address 1</label>
-<input name="address_1" value="" placeholder="Address 1" id="input-payment-address-1" class="form-control" type="text">
-</div>
-<div class="form-group">
-<label class="control-label" for="input-payment-address-2">Address 2</label>
-<input name="address_2" value="" placeholder="Address 2" id="input-payment-address-2" class="form-control" type="text">
-</div>
-<div class="form-group required">
-<label class="control-label" for="input-payment-city">City</label>
-<input name="city" value="" placeholder="City" id="input-payment-city" class="form-control" type="text">
-</div>
+            </fieldset>
+            </div>
+            <div class="col-sm-6">
+            <fieldset id="address" class="required">
+            <legend>Your Address</legend>
+            <div class="form-group">
+            <label class="control-label" for="input-payment-company">Company</label>
+            <input name="company" value="" placeholder="Company" id="input-payment-company" class="form-control" type="text">
+            </div>
+            <div class="form-group required">
+            <label class="control-label" for="input-payment-address-1">Address 1</label>
+            <input name="address_1" value="" placeholder="Address 1" id="input-payment-address-1" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+            <label class="control-label" for="input-payment-address-2">Address 2</label>
+            <input name="address_2" value="" placeholder="Address 2" id="input-payment-address-2" class="form-control" type="text">
+            </div>
+            <div class="form-group required">
+            <label class="control-label" for="input-payment-city">City</label>
+            <input name="city" value="" placeholder="City" id="input-payment-city" class="form-control" type="text">
+            </div>
 
 
 
-</fieldset>
-</div>
-</div>
+            </fieldset>
+            </div>
+            </div>
 
 <div class="checkbox">
 <label>
@@ -175,7 +187,7 @@ $('#collapse-payment-address button[id^=\'button-payment-custom-field\']').on('c
     }, 500);
 });
 //--></script>
-<script type="text/javascript"><!--
+<script type="text/javascript">
 $('.date').datetimepicker({
     pickTime: false
 });
@@ -236,3 +248,6 @@ $('#collapse-payment-address select[name=\'country_id\']').on('change', function
 $('#collapse-payment-address select[name=\'country_id\']').trigger('change');
 //--></script></div>
 </div>
+    </div>  
+</div>
+
