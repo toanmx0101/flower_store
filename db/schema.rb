@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(version: 20161123061440) do
   create_table "bills", force: :cascade do |t|
     t.float    "input_price"
     t.float    "selling_price"
-    t.integer  "product_id"
+    t.integer  "product_details_id"
     t.integer  "quantity"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -51,11 +51,11 @@ ActiveRecord::Schema.define(version: 20161123061440) do
 
   create_table "order_details", force: :cascade do |t|
     t.integer  "order_id"
-    t.integer  "product_id"
+    t.integer  "product_details_id"
     t.integer  "quantity"
-    t.float    "total_price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.float    "price"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -72,9 +72,9 @@ ActiveRecord::Schema.define(version: 20161123061440) do
     t.float    "cost"
     t.float    "discount"
     t.boolean  "new"
-    t.boolean  "sale"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "product_details_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "product_codes", force: :cascade do |t|
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20161123061440) do
     t.string   "type"
     t.integer  "product_id"
     t.string   "code"
+    t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -97,8 +98,12 @@ ActiveRecord::Schema.define(version: 20161123061440) do
     t.integer  "category_id"
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.text     "image"
+    t.float    "price"
+    t.boolean  "status",      default: true
+    t.text     "rate"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -118,7 +123,6 @@ ActiveRecord::Schema.define(version: 20161123061440) do
   create_table "stores", force: :cascade do |t|
     t.string   "product_details_code"
     t.integer  "quantity"
-    t.text     "list_codes"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
@@ -126,11 +130,13 @@ ActiveRecord::Schema.define(version: 20161123061440) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "address"
+    t.string   "phone"
     t.string   "password_digest"
     t.string   "remember_digest"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.boolean  "admin"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
