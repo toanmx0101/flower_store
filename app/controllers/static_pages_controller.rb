@@ -1,6 +1,5 @@
 class StaticPagesController < ApplicationController
   def home
-
     @featured = Featured.first
     @featured1 = Product.where(id: @featured.product_id).all
     @featured = Featured.second
@@ -19,9 +18,6 @@ class StaticPagesController < ApplicationController
     @product3 = Product.where(id: @specials.product_id).all
     @specials = Special.fourth
     @product4 = Product.where(id: @specials.product_id).all
-
-
-
   end
   def about
   	
@@ -30,12 +26,8 @@ class StaticPagesController < ApplicationController
   	
   end
   def contact
-  	
   end
+
   def help
-  	
-  end
-  def setting
-    
   end
 end

@@ -27,7 +27,6 @@
               <h2>Returning Customer</h2>
               <strong>I am a returning customer</strong>
             </div>
-            
                 <%= form_for(:session, url: login_path,class: 'form-group') do |f| %>
                   <div class="form-group">
                     <%= f.label :email,class: "control-label" %>
@@ -36,10 +35,15 @@
                   <div class="form-group">
                     <%= f.label :password,class: "control-label"%>
                     <%= f.password_field :password, class: "form-control" %>
-                  <br>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :remember_me, class: "control-label" do %>
+                    <%= f.check_box:remember_me %>
+                    <span>&nbsp&nbsp&nbsp&nbsp Remember</span>
+                  </div>
                   <%= f.submit "Log in", class: "btn btn-primary" %>      
                 <% end %>
-          </div>
+            </div>
         </div>        
       </div>      
     </div>

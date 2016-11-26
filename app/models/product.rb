@@ -1,4 +1,5 @@
-class Product < ApplicationRecord
+class Product < ActiveRecord::Base
+
 	belongs_to :category
 	has_many :product_details
 	has_many :images
