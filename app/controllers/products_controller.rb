@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @image = Image.where(product_id: params[:id]);
   end
 
   # GET /products/new
