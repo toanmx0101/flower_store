@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     post :edit_multiple
     put :update_multiple
   end
-  get 'products', to: 'products#index'
-  get 'products', to: 'products#create'
+  get '/products', to: 'products#index'
+  get '/products/new', to: 'products#new'
 end
 end
