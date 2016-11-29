@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<% if logged_in? %>
+
+<head>
+	<title><%= full_title(yield(:title)) %></title>
+	<%= csrf_meta_tags %>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+	<%= render 'layouts/admin' %>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+	<%= javascript_include_tag 'application', media: 'all','data-turbolinks-track': 'reload' %>
+</body>
+
+<% else %>
+
+
+<head>
+	<title><%= full_title(yield(:title)) %></title>
+	<%= csrf_meta_tags %>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+</head>
+
+
+<body class="hold-transition login-page">
+
+
+	<div class="login-box">
+		<div class="login-logo">
+			<a href="../../index2.html"><b>Admin</b>LTE</a>
+		</div>
+		<!-- /.login-logo -->
+		<div class="login-box-body">
+			<p class="login-box-msg">Sign in to start your session</p>
+
+			    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control', :required => true %>
+
+      <%= f.label :password %>  
+      <%= f.password_field :password, class: 'form-control', :required => true %>
+
+       <%= f.label :remember_me, class: "checkbox inline" do %>
+       <%= f.check_box:remember_me %>
+       <span>&nbsp&nbsp&nbsp&nbsp Remember</span>
+       <% end %>
+
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+
+
+					<!-- /.social-auth-links -->
+
+					<a href="#">I forgot my password</a><br>
+					<a href="register.html" class="text-center">Register a new membership</a>
+
+				</div>
+				<!-- /.login-box-body -->
+			</div>
+
+			<% end %>
+
+			<!-- jQuery 2.2.3 -->
+
+
+			<script>
+				$(function () {
+					$('input').iCheck({
+						checkboxClass: 'icheckbox_square-blue',
+						radioClass: 'iradio_square-blue',
+      increaseArea: '20%' // optional
+    });
+				});
+			</script>
+
+		</body>
+		</html>
