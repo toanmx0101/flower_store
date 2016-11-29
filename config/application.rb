@@ -11,5 +11,8 @@ module Bai6
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    Dir.glob("config/routes/*").each do |route|
+      config.paths["config/routes.rb"] << Rails.root.join(route)
+    end
   end
 end
