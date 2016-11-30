@@ -34,7 +34,7 @@
 								<div class="magnificent magnificent-mode-inner" data-magnificent="product-image">
 									<div class="polaroid">
 										<div class="inner" style="position: relative;">
-											<img src="<%= @image[0].link %>">
+											<img src="<%= @images[0].link %>">
 											<div class="magnificent-area" style="position: absolute; z-index: 100; top: 0px; left: 0px; background: white none repeat scroll 0% 0%; opacity: 0; height: 528px; width: 528px;">											
 											</div>
 											<div data-magnificent-viewport="product-image" class="magnificent-viewport magnificent-viewport-mode-inner" style="display: none; position: absolute; z-index: 98; overflow: hidden; height: 528px; width: 528px; left: 0px; top: 0px;">
@@ -56,6 +56,7 @@
 						<h2 class="product-title"><%= @product.name %></h2>						 
 						<div class="rating-section product-rating-status">
 							<div class="rating">
+
 								<i class="fa fa-star-o"></i>
 								<i class="fa fa-star-o"></i>
 								<i class="fa fa-star-o"></i>
@@ -73,36 +74,18 @@
 						</div>
 				
 					</div>
-					<div class="product">
-						<div class="product-options form-horizontal">
-							<h3>Available Options</h3>
-							<div class="form-group required">
-								<label class="control-label col-sm-6" for="input-option3">Size</label>
-								<div class="col-sm-6">
-								<select name="option[3]" id="input-option3" class="form-control">
-								<option value="">--- Please Select ---</option>
-								<option value="7">Small (+$15.00)
-								</option>
-								<option value="8">Medium (+$10.00)
-								</option>
-								<option value="9">Large (+$20.00)
-								</option>
-								</select>
-								</div>
-							</div>		
-							
-						</div>
-						<div class="form-group form-horizontal">
-						<div class="form-group">
-							<label class="control-label col-sm-6" for="input-quantity">Qty</label>
-							<div class="col-sm-2">
-								<input name="quantity" value="1" size="2" id="input-quantity" class="form-control" type="text">
-							</div>
-							</div>
-							<input name="product_id" value="33" type="hidden">
-							<button type="button" id="button-cart" data-loading-text="Loading..." class="btn btn-add"><span>Add to Cart</span></button>
-						</div>
-					</div>
+
+					 <%= form_for(:session, url: cart_add_product_to_cart_path, method: :post, class: 'form-group') do |f| %>
+					 		<div class="form-group">
+						  	<%= f.label :product_detail_id,class: "control-label" %>
+						 		<%= f.select :product_detail_id, options_for_select(Product::TYPES.map{|e| [e, e]}) %>
+					 		</div>
+              <div class="form-group">
+                <%= f.label :quantity,class: "control-label" %>
+                <%= f.number_field :quantity,:value => 1, class: "form-control" %>
+              </div>             
+              <%= f.submit "Add to cart", class: "btn btn-primary" %>      
+            <% end %>			
 				</div>
 			</div>
 			<div class="product_tabs">

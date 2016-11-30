@@ -22,10 +22,9 @@
       <span class="price-new">$<%= product.price %>0</span> <span class="price-old">$32.00</span>
     </div>
     <div class="cart-button">
-      <button class="btn btn-add" type="button" onclick="cart.add('29');">
-       
-        <span>Add to Cart</span>
-      </button>                    
+      <%= link_to product_path(product) do %>
+        <span class="btn btn-add">Add to Cart</span>
+      <% end %>       
     </div>
     <div class="rating" style="margin-top:15px">
       <span class="fa-stack"><i class="fa fa-star-o"></i></span>

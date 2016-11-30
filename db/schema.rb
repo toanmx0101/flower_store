@@ -68,15 +68,6 @@ ActiveRecord::Schema.define(version: 20161123061440) do
     t.datetime "updated_at",                  null: false
   end
 
-  create_table "prices", force: :cascade do |t|
-    t.float    "cost"
-    t.float    "discount"
-    t.boolean  "new"
-    t.integer  "product_detail_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
   create_table "product_codes", force: :cascade do |t|
     t.integer  "store_id"
     t.boolean  "status"
@@ -85,13 +76,14 @@ ActiveRecord::Schema.define(version: 20161123061440) do
   end
 
   create_table "product_details", force: :cascade do |t|
-    t.string   "color"
-    t.string   "type"
+    t.string   "type_product"
     t.integer  "product_id"
     t.string   "code"
-    t.integer  "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.float    "price"
+    t.boolean  "new"
+    t.float    "discount"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -100,10 +92,10 @@ ActiveRecord::Schema.define(version: 20161123061440) do
     t.text     "description"
     t.text     "image"
     t.float    "price"
-    t.boolean  "status",      default: true
+    t.boolean  "status"
     t.text     "rate"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -121,10 +113,10 @@ ActiveRecord::Schema.define(version: 20161123061440) do
   end
 
   create_table "stores", force: :cascade do |t|
-    t.string   "product_details_code"
+    t.string   "product_detail_id"
     t.integer  "quantity"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "users", force: :cascade do |t|

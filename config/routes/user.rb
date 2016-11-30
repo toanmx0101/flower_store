@@ -24,5 +24,8 @@ Rails.application.routes.draw do
   get    'checkout/step4', to: 'cart#checkout_step4'
   get    'checkout/step5', to: 'cart#checkout_step5'
   get    'shoppingcart', to: 'cart#index'
+  
   resources :users
+  resources :carts, only: [:show, :update]
+  post 'cart/add_product_to_cart'
 end

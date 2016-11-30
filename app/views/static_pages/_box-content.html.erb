@@ -11,12 +11,12 @@
 			</a>
 
 			<div class="stickers">
-				<% if product.status == true
-        %>
-        <div class="sale">sale</div>
-        <%              
-        end
-        %>
+				<% if product.status == false %>
+					<div class="new_pr">new</div>        
+				<%end%>	
+        <% 	if product.status == true %>
+        	<div class="sale">sale</div>        
+        <% end %>				
 			</div>
 		</div>
 		<div class="caption">

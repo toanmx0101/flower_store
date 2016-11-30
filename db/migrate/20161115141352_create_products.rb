@@ -6,7 +6,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.text :description
       t.text :image
       t.float :price
-      t.boolean :status, default: true
+      t.boolean :status
       t.text :rate
       t.timestamps
     end

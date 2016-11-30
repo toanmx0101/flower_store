@@ -1,4 +1,4 @@
-class CreateProductCodes < ActiveRecord::Migration[5.0]
+ class CreateProductCodes < ActiveRecord::Migration[5.0]
   def change
     create_table :product_codes do |t|
     	t.integer :store_id    	
