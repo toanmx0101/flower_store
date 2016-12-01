@@ -1,8 +1,5 @@
-<h1>List products</h1>
-<p id="notice"><%= notice %></p>
-
 <h1>Products</h1>
-<%= image_tag @product.image %>
+<p id="notice"><%= notice %></p>
+ <%=link_to(image_tag @product.image, :class=>"work", :size => "128x128") %>
 
-
-  <%= link_to 'New Product', admin_products_path %>
+  <%= link_to 'New Product', new_admin_product_url %>
