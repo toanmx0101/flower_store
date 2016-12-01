@@ -1,3 +1,4 @@
+<h1>List products</h1>
 <p id="notice"><%= notice %></p>
 
 <h1>Products</h1>
@@ -12,6 +13,15 @@
     </tr>
   </thead>
 
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.category_id %></td>
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>       
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <br>

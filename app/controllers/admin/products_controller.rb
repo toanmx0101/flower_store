@@ -2,22 +2,22 @@ class Admin::ProductsController < Admin::BaseController
   def index
     @products = Product.all
   end
-  def show
-    @products = Product.all
 
+  def show
+    @product = Product.find_by params[:id]
+    # binding.pry
   end
 
   def new
     @product = Product.new
   end
-  def edit
-  end
+
   def create
     @product = Product.new(product_params)
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to admin_products_path, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -52,6 +52,6 @@ class Admin::ProductsController < Admin::BaseController
     end
 
     def product_params
-      params.require(:product).permit(:category_id, :name, :description)
+      params.require(:product).permit(:category_id, :name, :image, :description)
     end
 end
