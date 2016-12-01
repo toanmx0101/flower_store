@@ -1,9 +1,86 @@
 
-<%= provide(:title,'Sign Up') %>
-<%= provide(:button_text,'Create mu account') %>
-<h1>Sign Up</h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= render 'form' %>
-  </div>
+
+<div class="container">
+	<ul class="breadcrumb">
+		<li><a href="http://livedemo00.template-help.com/opencart_55697_v1/index.php?route=common/home"><i class="fa fa-home"></i></a></li>
+		<li><a href="http://livedemo00.template-help.com/opencart_55697_v1/index.php?route=account/account">Account</a></li>
+		<li class="last"><a href="http://livedemo00.template-help.com/opencart_55697_v1/index.php?route=account/register" style="display: none;">Register</a><span>Register</span></li>
+	</ul>
+	<div class="row"> <div id="content" class="col-sm-9"> <h1>Register Account</h1>
+		<p>If you already have an account with us, please login at the <a href="http://livedemo00.template-help.com/opencart_55697_v1/index.php?route=account/login">login page</a>.</p>
+		<form action="http://livedemo00.template-help.com/opencart_55697_v1/index.php?route=account/register" method="post" enctype="multipart/form-data" class="form-horizontal">
+			<fieldset id="account">
+				<legend>Your Personal Details</legend>
+				<div class="form-group required" style="display: none;">
+					<label class="col-sm-3 control-label">Customer Group</label>
+					<div class="col-sm-9">
+						<div class="radio">
+							<label>
+								<input name="customer_group_id" value="1" checked="checked" type="radio">
+								Default</label>
+							</div>
+						</div>
+				</div>
+
+				<div class="form-group required">
+					<label class="col-sm-3 control-label" for="input-lastname">Your Name</label>
+					<div class="col-sm-9">
+						<input name="lastname" value="" placeholder="Last Name" id="input-lastname" class="form-control" type="text">
+					</div>
+				</div>
+				<div class="form-group required">
+					<label class="col-sm-3 control-label" for="input-email">E-Mail</label>
+					<div class="col-sm-9">
+						<input name="email" value="" placeholder="E-Mail" id="input-email" class="form-control" type="email">
+					</div>
+				</div>
+				<div class="form-group required">
+					<label class="col-sm-3 control-label" for="input-telephone">Telephone</label>
+					<div class="col-sm-9">
+						<input name="telephone" value="" placeholder="Telephone" id="input-telephone" class="form-control" type="tel">
+					</div>
+				</div>
+			
+			</fieldset>
+			<fieldset id="address">
+				<legend>Your Address</legend>
+			
+				<div class="form-group required">
+					<label class="col-sm-3 control-label" for="input-address-1">Address</label>
+					<div class="col-sm-9">
+						<input name="address" value="" placeholder="Address" id="input-address" class="form-control" type="text">
+					</div>
+				</div>
+		
+				<div class="form-group required">
+					<label class="col-sm-3 control-label" for="input-city">City</label>
+					<div class="col-sm-9">
+						<input name="city" value="" placeholder="City" id="input-city" class="form-control" type="text">
+					</div>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Your Password</legend>
+				<div class="form-group required">
+					<label class="col-sm-3 control-label" for="input-password">Password</label>
+					<div class="col-sm-9">
+						<input name="password" value="" placeholder="Password" id="input-password" class="form-control" type="password">
+					</div>
+				</div>
+				<div class="form-group required">
+					<label class="col-sm-3 control-label" for="input-confirm">Password Confirm</label>
+					<div class="col-sm-9">
+						<input name="confirm" value="" placeholder="Password Confirm" id="input-confirm" class="form-control" type="password">
+					</div>
+				</div>
+			</fieldset>
+
+			<div class="buttons">
+					<input value="Continue" class="btn btn-primary" type="submit">
+		</form>
+		</div>
+		
+	</div>
+	<%= render 'users/right_sidenav'%>
 </div>
+	

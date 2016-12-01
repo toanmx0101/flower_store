@@ -84,4 +84,8 @@ ProductDetail.create(:type_product=> "Nomal",:product_id => '1', :code => 'FL01N
 ProductDetail.create(:type_product=> "Small",:product_id => '1', :code => 'FL01S',:price =>'10.00',:new => 'true',:discount => '10');
 ProductDetail.create(:type_product=> "Large",:product_id => '1', :code => 'FL01L',:price =>'15.00',:new => 'true',:discount => '10');
 
+ProductDetail.create(:type_product=> "Nomal",:product_id => '2', :code => 'FL02N',:price =>'12.00',:new => 'true',:discount => '10');
+ProductDetail.create(:type_product=> "Small",:product_id => '2', :code => 'FL02S',:price =>'10.00',:new => 'true',:discount => '10');
+ProductDetail.create(:type_product=> "Large",:product_id => '2', :code => 'FL02L',:price =>'15.00',:new => 'true',:discount => '10');
+
 puts "Finish"
