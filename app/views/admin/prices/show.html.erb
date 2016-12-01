@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @admin_price.cost %>
+</p>
+
+<p>
+  <strong>Discount:</strong>
+  <%= @admin_price.discount %>
+</p>
+
+<p>
+  <strong>New:</strong>
+  <%= @admin_price.new %>
+</p>
+
+<p>
+  <strong>Product detail:</strong>
+  <%= @admin_price.product_detail_id %>
+</p>
+
+<%= link_to 'Edit', edit_admin_price_path(@admin_price) %> |
+<%= link_to 'Back', admin_prices_path %>

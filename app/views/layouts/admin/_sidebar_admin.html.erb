@@ -42,7 +42,6 @@
       <span>Products</span>
       <span class="pull-right-container">
         <small class="label pull-right bg-green">new</small>
-
       </span>
     </a>
     <ul class="treeview-menu">
@@ -63,7 +62,16 @@
     <i class="fa fa-th"></i> <span>User</span>
     <span class="pull-right-container">
       <span class="label label-primary pull-right">2</span>
+      <ul class="treeview-menu">
+           <li>
+            <%= link_to admin_users_url do %>
+            <i class="fa fa-circle-o"></i> List User
+            <% end %>
+          </li>
 
+          <li>         
+           <a href="#" title="">Message</a>
+         </ul>
     </span>
   </a>
 </li>
