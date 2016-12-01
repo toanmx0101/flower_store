@@ -1,8 +1,10 @@
 puts "Create 20 Products"
+
 Product.create(:name =>'Autumn Shades Perfect Gift',:category_id =>'1',:description=>'What do we do when we want to show our thankfulness? We send a card, a gift or something like that. ..',:image=>'http://localhost:3000/assets/corporate/pro_01',:price=>'25.60',:status => false,:rate =>'0.00')
 Product.create(:name =>'Grand Prix Rose Hand tied',:category_id =>'1',:description=>'What do we do when we want to show our thankfulness? We send a card, a gift or something like that. ..',:image=>'http://localhost:3000/assets/corporate/pro_02',:price=>'80.00 ',:status => false)
 Product.create(:name =>'New Baby Vibrant Hand tied or Vase',:category_id =>'1',:description=>'',:image=>'http://localhost:3000/assets/corporate/pro_03',:price=>'20.80')
 Product.create(:name =>'Watering Can with Bailey Bear',:category_id =>'1',:description=>'',:image=>'http://localhost:3000/assets/corporate/pro_04',:price=>'16.00 ',:status => true)
+
 
 Product.create(:name =>'Baby-Boy Perfect Gift',:category_id =>'2',:description=>'',:image=>'http://localhost:3000/assets/loveandromance/pro_05',:price=>'22.40',:status => true)
 Product.create(:name =>'Luxury Grand Prix Rose Hand tied',:category_id =>'2',:description=>'What do we do when we want to show our thankfulness? We send a card, a gift or something like that. ..',:image=>'http://localhost:3000/assets/loveandromance/pro_06',:price=>'26.40',:status => true)
@@ -41,6 +43,7 @@ Featured.create(:product_id => 3)
 Featured.create(:product_id => 5)
 Featured.create(:product_id => 7)
 Featured.create(:product_id => 9)
+
 puts "Create User"
 User.create!(name:  "Example User",
              email: "admin@gmail.com",
@@ -87,5 +90,4 @@ ProductDetail.create(:type_product=> "Large",:product_id => '1', :code => 'FL01L
 ProductDetail.create(:type_product=> "Nomal",:product_id => '2', :code => 'FL02N',:price =>'12.00',:new => 'true',:discount => '10');
 ProductDetail.create(:type_product=> "Small",:product_id => '2', :code => 'FL02S',:price =>'10.00',:new => 'true',:discount => '10');
 ProductDetail.create(:type_product=> "Large",:product_id => '2', :code => 'FL02L',:price =>'15.00',:new => 'true',:discount => '10');
-
 puts "Finish"

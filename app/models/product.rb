@@ -1,5 +1,4 @@
 class Product < ActiveRecord::Base
-
 	TYPES = ['Nomal', 'Small',  'Large',]
 
 	belongs_to :category
@@ -7,4 +6,6 @@ class Product < ActiveRecord::Base
 	has_many :images
 	has_many :specials
 	has_many :featureds
+	
+	mount_uploader :image, AvatarUploader
 end
