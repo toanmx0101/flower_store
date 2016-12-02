@@ -1,4 +1,4 @@
-class Admin::ImagesController < ApplicationController
+class Admin::ImagesController < Admin::BaseController
   before_action :set_admin_image, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/images
@@ -25,10 +25,10 @@ class Admin::ImagesController < ApplicationController
   # POST /admin/images.json
   def create
     @admin_image = Admin::Image.new(admin_image_params)
-
+    
     respond_to do |format|
       if @admin_image.save
-        format.html { redirect_to @admin_image, notice: 'Image was successfully created.' }
+        format.html { redirect_to admin_images_url, notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @admin_image }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class Admin::ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_image_params
-      params.require(:admin_image).permit(:link, :product_id)
+      params.require(:image).permit(:link, :product_id)
     end
 end

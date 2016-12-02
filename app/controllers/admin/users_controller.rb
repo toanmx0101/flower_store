@@ -54,11 +54,9 @@ class Admin::UsersController < Admin::BaseController
   # DELETE /admin/users/1
   # DELETE /admin/users/1.json
   def destroy
-    @admin_user.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    User.find(params[:id]).destroy
+    flash[:success] = "User destroyed."
+    redirect_to users_path
   end
 
   private
@@ -71,4 +69,4 @@ class Admin::UsersController < Admin::BaseController
     def admin_user_params
       params.require(:admin_user).permit(:name, :email, :address, :address, :phone, :password_digest)
     end
-end
+  end

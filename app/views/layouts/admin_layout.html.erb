@@ -4,7 +4,7 @@
 <head>
   <head>
   <%= csrf_meta_tags %>
-  <title>Flower Store</title>
+    <title><%= full_title(yield(:title)) %></title>
   <link rel="stylesheet" edia="screen" href="/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" edia="screen" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" edia="screen" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -26,7 +26,11 @@
 <% if logged_in? and current_user.admin? %>
 
 <body class="hold-transition skin-blue sidebar-mini">
-
+    <div class="container" id="ctn">
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+        <% end %>
+    </div>
   <%= render 'layouts/admin/admin' %>
 <script src="/assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
