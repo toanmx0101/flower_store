@@ -17,7 +17,7 @@
               </div>
             </div>
             <p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.</p>
-            <a href="" class="btn btn-default">Continue</a>
+            <a href="/signup" class="btn btn-default">Continue</a>
           </div>
         </div>
         <div class="col-sm-6">
@@ -47,23 +47,6 @@
         </div>        
       </div>      
     </div>
-    <aside id="column-right" class="col-sm-3">
-      <div class="box affilate info">
-        <div class="box-heading">
-          <h3>Affiliate</h3>
-        </div>
-        <div class="box-content">
-          <ul>
-            <li><a href="">Login</a></li>
-            <li><a href="">Register</a></li>
-            <li><a href="">Forgotten Password</a></li>
-            <li><a href="">My Account</a></li>
-            <li><a href="">Payment Options</a></li>
-            <li><a href="">Affiliate Tracking</a></li>
-            <li><a href="">Transactions</a></li>
-          </ul>
-        </div>
-      </div>
-    </aside>
+    <%= render 'users/right_sidenav'%>
   </div>
 </div>

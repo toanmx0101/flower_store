@@ -1,4 +1,4 @@
-<form action="http://livedemo00.template-help.com/opencart_55697_v1/index.php?route=checkout/cart/edit" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data">
 	<div class="table-responsive">
 		<table class="table table-bordered">
 			<thead>
@@ -7,106 +7,76 @@
 					<td class="text-left">Product Name</td>
 					<td class="text-left">Quantity</td>
 					<td class="text-right">Unit Price</td>
+					<td class="text-right">Discout</td>
 					<td class="text-right">Total</td>
 					<td style="width: 0"></td>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td class="text-center vcenter"> 
-						<div class="image">
-							<a href="http://livedemo00.template-help.com/opencart_55697_v1/index.php?route=product/product&amp;product_id=29">
-								<img src="http://livedemo00.template-help.com/opencart_55697_v1/image/cache/catalog/product-4-150x150.png" alt="Autumn Shades Perfect Gift" title="Autumn Shades Perfect Gift" class="img-thumbnail">
-							</a>
-						</div>
-					</td>
-					<td class="text-left">
-						<a class="link" href="">
-						Autumn Shades Perfect Gift </a>
-						<br>
-						<small>
-						<strong>Model</strong> : Deluxe </small>
-						<br>
-						<small>
-						<strong>Size</strong>: Medium </small>
-						<br>
-						<small>
-						<strong>Color</strong>: red </small>
-					</td>
-					<td class="text-left">
-						<div class="btn-block clearfix" style="max-width: 200px;">
-							<a class="counter counter-minus" href="#">
-								<i class="fa fa-minus" aria-hidden="true"></i>
-							</a>
-								<input name="quantity[181]" value="1" size="1" class="form-control cart-q" id="cart-q" type="text">
-							<a class="counter counter-plus" href="#">
-								<i class="fa fa-plus" aria-hidden="true"></i>
-							</a>
-							<p>
-							<button type="submit" class="link">Update</button>
-							</p>
-						</div>
-					</td>
-					<td class="text-right">
-						<div class="price">$35.60</div>
-					</td>
-					<td class="text-right">
-						<div class="price price-total">$35.60</div>
-					</td>
-					<td class="text-center" style="width: 0">
-						<button type="button" data-toggle="tooltip" title="" class="cart-remove-btn" onclick="cart.remove('181');" data-original-title="Remove">
-							<i class="material-design-rubbish"></i>
-						</button>
-					</td>
-				</tr>
-				<tr>
-					<td class="text-center vcenter"> 
-						<div class="image">
-							<a href="http://livedemo00.template-help.com/opencart_55697_v1/index.php?route=product/product&amp;product_id=29">
-								<img src="http://livedemo00.template-help.com/opencart_55697_v1/image/cache/catalog/product-4-150x150.png" alt="Autumn Shades Perfect Gift" title="Autumn Shades Perfect Gift" class="img-thumbnail">
-							</a>
-						</div>
-					</td>
-					<td class="text-left">
-						<a class="link" href="">
-						Autumn Shades Perfect Gift </a>
-						<br>
-						<small>
-						<strong>Model</strong> : Deluxe </small>
-						<br>
-						<small>
-						<strong>Size</strong>: Medium </small>
-						<br>
-						<small>
-						<strong>Color</strong>: red </small>
-					</td>
-					<td class="text-left">
-						<div class="btn-block clearfix" style="max-width: 200px;">
-							<a class="counter counter-minus" href="#">
-								<i class="fa fa-minus" aria-hidden="true"></i>
-							</a>
-								<input name="quantity[181]" value="1" size="1" class="form-control cart-q" id="cart-q" type="text">
-							<a class="counter counter-plus" href="#">
-								<i class="fa fa-plus" aria-hidden="true"></i>
-							</a>
-							<p>
-							<button type="submit" class="link">Update</button>
-							</p>
-						</div>
-					</td>
-					<td class="text-right">
-						<div class="price">$35.60</div>
-					</td>
-					<td class="text-right">
-						<div class="price price-total">$35.60</div>
-					</td>
-					<td class="text-center" style="width: 0">
-						<button type="button" data-toggle="tooltip" title="" class="cart-remove-btn" onclick="cart.remove('181');" data-original-title="Remove">
-							<i class="material-design-rubbish"></i>
-						</button>
-					</td>
-				</tr>
+			<!-- begin each session[:current_cart] -->
+				<% @total = 0 %>
+				<% session[:current_cart].each do |key ,value| %>
+					<% product_detail 	= ProductDetail.where(id: key).first %>
+					<% product = Product.where(id: product_detail.product_id).first %>	
+					<tr>
+						<td class="text-center vcenter"> 
+							<div class="image">
+								<a href="">
+									<img src="<%= product.image %>" alt="Autumn Shades Perfect Gift" title="Autumn Shades Perfect Gift" class="img-thumbnail"  height="80" width="80">
+								</a>
+							</div>
+						</td>
+						<td class="text-left">
+							<a class="link" href="">
+							<%= product.name%> </a>
+							<br>						
+							<small>
+							<strong>Size</strong>: <%= product_detail.type_product %> </small>
+							<br>						
+							<small>
+							<strong>Product Code</strong>: <%= product_detail.code%> </small>
+						</td>
+						<td class="text-left">
+							<div class="btn-block clearfix" style="max-width: 200px;">								
+									<input name="quantity[181]" value="<%= value %>" size="1" class="form-control cart-q" id="cart-q" type="text">								
+								<p>
+								<button type="submit" class="link">Update</button>
+								</p>
+							</div>
+						</td>
+						<td class="text-right">
+							<div class="price">$<%=product_detail.price%></div>
+						</td>
+						<td class="text-right">
+							<div class="price"><%=product_detail.discount%>%</div>
+						</td>
+
+						<% @total =  @total + (product_detail.price - product_detail.price*product_detail.discount/100)*value %>
+						<td class="text-right">
+							<div class="price price-total">$<%= (product_detail.price - product_detail.price*product_detail.discount/100)*value%></div>
+						</td>
+						<td class="text-center" style="width: 0">
+							<button type="button" data-toggle="tooltip" title="" class="cart-remove-btn" onclick="cart.remove('181');" data-original-title="Remove">
+								<i class="fa fa-times fa-1x" aria-hidden="true"></i>
+							</button>
+						</td>
+					</tr>
+					<!-- end each session[:current_cart] -->
+				<% end %>
 			</tbody>
 		</table>
 	</div>
 </form>
+
+<div class="row">
+	<div class="col-sm-4 col-sm-offset-8">
+		<table class="table table-bordered">
+			<tbody>
+				<tr>
+					<td class="text-right"><strong>Total:</strong></td>
+					<td class="text-right">$<%= @total%></td>
+				</tr>			
+			</tbody>
+		</table>
+	</div>
+</div>

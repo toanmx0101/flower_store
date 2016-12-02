@@ -19,10 +19,16 @@ Rails.application.routes.draw do
 
   get    'checkout', to: 'cart#checkout'
   get    'checkout/step1', to: 'cart#checkout_step1'
-  get    'checkout/step2', to: 'cart#checkout_step2'
-  get    'checkout/step3', to: 'cart#checkout_step3'
-  get    'checkout/step4', to: 'cart#checkout_step4'
-  get    'checkout/step5', to: 'cart#checkout_step5'
+  get    'checkout_step2', to: 'cart#checkout_step2'
+  get    'checkout_step3', to: 'cart#checkout_step3'
+  get    'checkout_step4', to: 'cart#checkout_step4'
+  get    'checkout_step5', to: 'cart#checkout_step5'
   get    'shoppingcart', to: 'cart#index'
+  
   resources :users
+  resources :carts, only: [:show, :update]
+  post 'cart/add_product_to_cart'
+  post 'cart/checkout_guest'
+  post 'cart/checkout_register_account'
+  post 'cart/checkout_login'
 end

@@ -607,3 +607,22 @@ a:hover {
 .search button:hover, .search button:active, .search button:focus {
     color: #f3c881;
 }
+.new_pr {
+    background: #57cc86;
+}
+.sale, .new_pr {
+    position: relative;
+    pointer-events: none;
+    color: #fff;
+    background: #f4b956;
+    font: bold 14px/16px "Open Sans", sans-serif;
+    padding: 10px 5px 9px;
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: top;
+    width: 69px;
+    height: 35px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    border-radius: 18px;
+}
