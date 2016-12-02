@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin Bills</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Input price</th>
+      <th>Selling price</th>
+      <th>Product details</th>
+      <th>Quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_bills.each do |admin_bill| %>
+      <tr>
+        <td><%= admin_bill.input_price %></td>
+        <td><%= admin_bill.selling_price %></td>
+        <td><%= admin_bill.product_details_id %></td>
+        <td><%= admin_bill.quantity %></td>
+        <td><%= link_to 'Show', admin_bill %></td>
+        <td><%= link_to 'Edit', edit_admin_bill_path(admin_bill) %></td>
+        <td><%= link_to 'Destroy', admin_bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Bill', new_admin_bill_path %>

@@ -1,0 +1,39 @@
+  <p id="notice"><%= notice %></p>
+
+<h1>Admin Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Price</th>
+      <th>Status</th>
+      <th>Rate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_products.each do |admin_product| %>
+      <tr>
+        <td><%= admin_product.category_id %></td>
+        <td><%= admin_product.name %></td>
+        <td><%= admin_product.description %></td>
+        <td><%= admin_product.image %></td>
+        <td><%= admin_product.price %></td>
+        <td><%= admin_product.status %></td>
+        <td><%= admin_product.rate %></td>
+        <td><%= link_to 'Show', admin_product %></td>
+        <td><%= link_to 'Edit', edit_admin_product_path(admin_product) %></td>
+        <td><%= link_to 'Destroy', admin_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Product', new_admin_product_path %>

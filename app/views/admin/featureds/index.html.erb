@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin Featureds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_featureds.each do |admin_featured| %>
+      <tr>
+        <td><%= admin_featured.product_id %></td>
+        <td><%= link_to 'Show', admin_featured %></td>
+        <td><%= link_to 'Edit', edit_admin_featured_path(admin_featured) %></td>
+        <td><%= link_to 'Destroy', admin_featured, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Featured', new_admin_featured_path %>
