@@ -4,8 +4,10 @@ class CartController < ApplicationController
 	end
 
 	def index
-		session[:current_cart].each do |key, value|
+		unless (session[:current_cart].nil?)
+			session[:current_cart].each do |key, value|
 			
+			end
 		end
 	end	
 

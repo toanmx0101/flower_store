@@ -1183,7 +1183,7 @@ header .button-right {
   position: relative;
   height: 0;
   overflow: hidden;
-  background: transparent url(../image/lazy-loader.gif) no-repeat center center;
+  background: transparent url() no-repeat center center;
 }
 .lazy img {
   position: absolute;
