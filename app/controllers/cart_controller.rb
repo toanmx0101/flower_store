@@ -20,6 +20,18 @@ class CartController < ApplicationController
 
 	end
 
+	def add_address
+		add_address_order
+	end
+
+	def add_comment_order
+		add_comment
+	end
+
+	def confirm_order
+		confirm
+	end
+
 	def checkout_guest
 
 		if (params[:account] == "guest")
@@ -64,7 +76,42 @@ class CartController < ApplicationController
 			end	
 		end
 
-		def checkout
-			
+		def add_address_order
+			if params[:payment_address] == "existing"
+				session[:address] = params[:session][:address]
+			else
+				session[:name] = params[:session][:new_name]
+				session[:address] = params[:session][:new_name]
+				session[:phonenumber] = params[:session][:new_phonenumber]
+			end		
+			redirect_to checkout_step3_path
 		end
+
+		def add_comment
+			session[:comment] =  params[:comment]
+			redirect_to checkout_step4_path
+		end
+
+		def confirm
+			order = current_user.orders.create requirement: session[:comment], phonenumber:  session[:address]
+			
+			(get_json_cart session[:current_cart]).each do |p|
+				order.order_details.create  product_detail_id: p[:product_detail_id]  ,product_name: p[:name],product_type: p[:type],  product_details_code: p[:code], quantity: p[:count], price: p[:current_price]
+				binding.pry					
+			end			      
+			redirect_to checkout_success_path
+		end	
+
+		def get_json_cart cart
+			products = ProductDetail.find cart.keys
+			products.map{|e| get_json_product(e, cart[e.id.to_s])}
+		end
+
+		def get_json_product product_detail, count
+			cur_price = product_detail.price*(1 - product_detail.discount/100)
+			{product_detail_id: product_detail.id ,name: product_detail.product.name, type: product_detail.type_product,
+				code: product_detail.code, current_price: cur_price, count: count}
+		end
+
+
 end

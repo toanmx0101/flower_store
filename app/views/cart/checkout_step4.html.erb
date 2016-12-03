@@ -1,0 +1,66 @@
+<div class="container">
+	<ul class="breadcrumb">
+		<li><a href="/"><i class="fa fa-home"></i></a></li>
+		<li><a href="shoppingcart">Shopping Cart</a></li>
+		<li ><a href="/checkout" style="display: none;">Checkout</a><span>Checkout</span></li>
+		<li class="last"><a href="/checkout" style="display: none;">Checkout</a><span>Step 4</span></li>
+	</ul>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Step 4: Confirm Order</h4>
+		</div>
+		<div class="panel-collapse collapse in" id="collapse-checkout-option" aria-expanded="true" style="">
+			<div class="panel-body">
+				
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<td class="text-left">Product Name</td>
+									<td class="text-left">Model</td>
+									<td class="text-right">Quantity</td>
+									<td class="text-right">Unit Price</td>
+									<td class="text-right">Total</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="text-left name"><a href="">Autumn Shades Perfect Gift</a><br>
+									&nbsp;<small> - Size: Small</small><br>
+									&nbsp;<small> - Color: red</small>
+									</td>
+
+									<td class="text-left">Deluxe</td>
+									<td class="text-right">1</td>
+									<td class="text-right tx-price">$40.60</td>
+									<td class="text-right tx-price">$40.60</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="4" class="text-right"><strong>Sub-Total:</strong></td>
+									<td class="text-right tx-price">$40.60</td>
+								</tr>
+								<tr>
+									<td colspan="4" class="text-right"><strong>Shipping Rate:</strong></td>
+									<td class="text-right tx-price">$1.00</td>
+								</tr>
+								<tr>
+									<td colspan="4" class="text-right"><strong>Total:</strong></td>
+									<td class="text-right tx-price">$45.60</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+					<%= form_for(:session, url: cart_confirm_order_path, method: :post, class: 'form-horizontal') do |f| %>
+						<div class="buttons">
+							<div class="pull-right">
+								<%= f.submit "Confirm Order", class: "btn btn-primary" %>    
+							</div>
+						</div>
+					<% end %>		
+
+			</div>
+		</div>
+	</div>	
+</div>

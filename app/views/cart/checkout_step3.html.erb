@@ -1,0 +1,29 @@
++ <%  provide(:title,"Checkout Option") %>
+<div class="container">
+	<ul class="breadcrumb">
+		<li><a href="/"><i class="fa fa-home"></i></a></li>
+		<li><a href="shoppingcart">Shopping Cart</a></li>
+		<li ><a href="/checkout" style="display: none;">Checkout</a><span>Checkout</span></li>
+		<li class="last"><a href="/checkout" style="display: none;">Checkout</a><span>Step 3</span></li>
+	</ul>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Step 3: Checkout Option</h4>
+		</div>
+		<div class="panel-collapse collapse in" id="collapse-checkout-option" aria-expanded="true" style="">
+			<div class="panel-body">
+				<%= form_for(:session, url: cart_add_comment_order_path, method: :post, class: 'form-horizontal') do |f| %>
+					<label><strong>Flat Shipping Rate - $1.00</strong></label>
+					<br><br>
+					<p><strong>Add Comments About Your Order</strong></p>
+					<p><textarea name="comment" rows="8" class="form-control"></textarea></p>
+					<div class="buttons">
+						<div class="pull-right">
+							<%= f.submit "Continue", class: "btn btn-primary" %>    
+						</div>
+					</div> 
+				<% end %>	
+			</div>
+		</div>
+	</div>	
+</div>

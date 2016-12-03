@@ -4,7 +4,7 @@
 			
 		<div class="row">
 			<div id="content" class="col-sm-12">
-				<div id="tm-newsletter-popup" class="newsletter-popup-wrap" style="display: none;">
+				<div id="tm-newsletter-popup" class="newsletter-popup-wrap" style="display: block;">
 					<div class="newsletter-popup" style="background-image: url(http://livedemo00.template-help.com/opencart_55697_v1/image/cache/catalog/newsletter-bg-630x295.jpg)">
 						<div class="box-content">
 							<h4>Newsletter</h4>
@@ -22,59 +22,17 @@
 								</div>
 							</form>
 						</div>
-						<button type="button" id="newsletter-popup-close-btn" class="newsletter-popup-close-btn"><i class="material-design-close47"></i></button>
+						<button type="button" id="newsletter-popup-close-btn" class="newsletter-popup-close-btn">
+							<i class="fa fa-times" aria-hidden="true"></i>
+						</button>
 					</div>
 				</div>
-				<script>
-			        function getCookie(c_name) {
-			            if (document.cookie.length > 0) {
-			                c_start = document.cookie.indexOf(c_name + "=");
-			                if (c_start != -1) {
-			                    return true;
-			                }
-			            }
-			            return false;
-			        }
-
-
-			        jQuery(document).ready(function ($) {
-			            var showIt = getCookie('shownewsletter');
-			            var m = 15;
-			            var date = new Date();
-			            date.setTime(date.getTime() + (m * 60 * 1000));
-			            if (!showIt) {
-			                $('#tm-newsletter-popup').fadeIn(300);
-			            }
-			            document.cookie = 'shownewsletter=true; path=/; expires=' + date.toString();
+				<script>			        
+			        jQuery(document).ready(function ($) {			            
 			            $('#newsletter-popup-close-btn').click(function () {
 			                $('#tm-newsletter-popup').fadeOut(300);
 			            })
-			            $('#tm-newsletter-popup').submit(function (e) {
-			                e.preventDefault();
-			                var email = $("#input-tm-newsletter-popup-email").val();
-			                var emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/igm;
-			                if (emailRegex.test(email)) {
-			                    var dataString = 'tm_newsletter_popup_email=' + email;
-			                    $.ajax({
-			                        type: "POST",
-			                        url: "index.php?route=module/tm_newsletter_popup",
-			                        data: dataString,
-			                        cache: false,
-			                        success: function (result) {
-			                            if (!result) {
-			                                $('#tm-newsletter-popup_success').html('You have successfully subscribed').fadeIn(300).delay(4000).fadeOut(300);
-			                            } else {
-			                                $('#tm-newsletter-popup_error').dequeue();
-			                                $('#tm-newsletter-popup_error').html(result).fadeIn(300).delay(4000).fadeOut(300);
-			                            }
-			                        }
-			                    });
-			                } else {
-			                    $('#tm-newsletter-popup_error').html('Please enter a valid e-mail!').fadeIn(300).delay(4000).fadeOut(300);
-			                }
-			            });
-
-
+			            
 			        });
 			    </script>
 				<div class="box featured">
