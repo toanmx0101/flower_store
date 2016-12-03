@@ -60,8 +60,6 @@ ActiveRecord::Schema.define(version: 20161123061440) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-    t.text     "name"
-    t.text     "email"
     t.text     "address"
     t.text     "requirement"
     t.integer  "phonenumber"

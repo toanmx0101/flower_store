@@ -11,11 +11,11 @@
 			</a>
 
 			<div class="stickers">
-				<% if product.status == false %>
-					<div class="new_pr">new</div>        
+				<% if product.status == true %>
+					    <div class="sale">sale</div>      
 				<%end%>	
-		        <% 	if product.status == true %>
-		        	<div class="sale">sale</div>        
+		        <% 	if product.status.nil? %>
+		        	<div class="new_pr">new</div>    		        	  
 		        <% end %>				
 			</div>
 		</div>
@@ -25,7 +25,10 @@
 			</div>
 
 			<div class="price">
-				<span class="price-new">$<%= product.price %>0</span> <span class="price-old">$40.00</span>
+				<span class="price-new">$<%= product.price %>0</span> 
+				<% if !(product.status == false ) %>
+				 	<span class="price-old">$40.00</span>
+				<% end %> 	
 			</div>
 
 			<div class="cart-button">

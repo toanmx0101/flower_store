@@ -15,11 +15,15 @@ Rails.application.routes.draw do
 
   get    'login',   to: 'sessions#new'
   post   'login',   to: 'sessions#create'
-  delete 'logout',  to: 'sessions#destroy'
+  get 'logout',  to: 'sessions#destroy'
+
+  post   'checkout_login',   to: 'cart#create'
 
   get    'checkout', to: 'cart#checkout'
-  get    'checkout/step1', to: 'cart#checkout_step1'
+  get    'checkout_step1', to: 'cart#checkout_step1'
   get    'checkout_step2', to: 'cart#checkout_step2'
+  get    'checkout_step2_guest', to: 'cart#checkout_step2_guest'
+  get    'checkout_step2_register_account', to: 'cart#checkout_step2_register_account'
   get    'checkout_step3', to: 'cart#checkout_step3'
   get    'checkout_step4', to: 'cart#checkout_step4'
   get    'checkout_step5', to: 'cart#checkout_step5'

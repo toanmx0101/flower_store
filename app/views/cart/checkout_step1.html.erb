@@ -12,47 +12,40 @@
 		<div class="panel-collapse collapse in" id="collapse-checkout-option" aria-expanded="true" style="">
 			<div class="panel-body">
 				<div class="row">
-
-					
-
 					<div class="col-sm-6">
-						<%= form_for(:session, url: cart_add_product_to_cart_path, method: :post, class: 'form-group') do |f| %>
+						<%= form_for(:session, url: cart_checkout_guest_path, method: :post, class: 'form-group') do |f| %>
 							<h2>New Customer</h2>
 							<p>Checkout Options:</p>
 							<div class="radio">
 								<label>
-									<input name="account" value="register" type="radio">
+									<input name="account" value="register" checked="checked" type="radio">
 									Register Account
 								</label>
 							</div>
-
 							<div class="radio">
 								<label>
-									<input name="account" value="guest" checked="checked" type="radio">
+									<input name="account" value="guest"  type="radio">
 									Guest Checkout
 								</label>
 							</div>
-						<p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.</p>
-						<input value="Continue" id="button-account" data-loading-text="Loading..." class="btn btn-primary" type="button">
-	          <% end %>			
-						
+							<p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.</p>
+							<%= f.submit "Continue", class: "btn btn-primary" %>    
+	          			<% end %>			
 					</div>
-
-
 					<div class="col-sm-6">
 						<h2>Returning Customer</h2>
 						<p>I am a returning customer</p>
-						<%= form_for(:session, url: login_path,class: 'form-group') do |f| %>
-              <div class="form-group">
-                <%= f.label :email,class: "control-label" %>
-                <%= f.email_field :email, class: "form-control" %>
-              </div>
-              <div class="form-group">
-                <%= f.label :password,class: "control-label"%>
-                <%= f.password_field :password, class: "form-control" %>
-              </div>              
-              <%= f.submit "Log in", class: "btn btn-primary" %>      
-            <% end %>
+						<%= form_for(:session, url: checkout_login_path,class: 'form-group') do |f| %>
+			              <div class="form-group">
+			                <%= f.label :email,class: "control-label" %>
+			                <%= f.email_field :email, class: "form-control" %>
+			              </div>
+			              <div class="form-group">
+			                <%= f.label :password,class: "control-label"%>
+			                <%= f.password_field :password, class: "form-control" %>
+			              </div>              
+			              <%= f.submit "Log in", class: "btn btn-primary" %>      
+				        <% end %>
 					</div>
 				</div>
 			</div>

@@ -68,25 +68,29 @@
 							</div>
 						</div>
 						<div class="price-section">
-							<span class="price-new">$<%= @product.price %>0</span> <span class="price-old">$40.00</span>
+							<span class="price-new">$<%= @product.price %>0</span> 
+							<% if !(@product.status == false ) %>
+							 	<span class="price-old">$40.00</span>
+							<% end %> 	
 							<div class="reward-block">
 							</div>
 						</div>
 				
 					</div>
 
-					 <%= form_for(:session, url: cart_add_product_to_cart_path, method: :post, class: 'form-group') do |f| %>
-					 		<div class="form-group">
-						  	<%= f.label :product_detail_id,class: "control-label" %>
-						 		<%= f.select :type_product, options_for_select(Product::TYPES.map{|e| [e, e]}) %>
-					 		</div>
-              <div class="form-group">
-                <%= f.label :quantity,class: "control-label" %>
-                <%= f.number_field :quantity,:value => 1, class: "form-control" %>                
-              </div>             
-               <%= f.hidden_field :product_id, :value => @product.id%>
-              <%= f.submit "Add to cart", class: "btn btn-primary" %>      
-            <% end %>			
+					<%= form_for(:session, url: cart_add_product_to_cart_path, method: :post, class: "form-group") do |f| %>
+					 	<h3>Available Options</h3>
+					 	<div class="form-group">
+						  	<%= f.label :Size,class: "control-label col-sm-6",stype: "padding-top: 7px; margin-bottom: 0;float: right;" %>
+						 	<%= f.select :type_product, options_for_select(Product::TYPES.map{|e| [e, e]}), class: "form-control"  %>
+					 	</div>
+		              	<div class="form-group">
+			                <%= f.label :quantity,class: "control-label col-sm-6" %>
+			                <%= f.number_field :quantity,:value => 1, class: "form-control ",type: "text" %>                
+		              	</div>             
+		               	<%= f.hidden_field :product_id, :value => @product.id%>
+		              	<%= f.submit "Add to cart", class: "btn btn-primary" %>      
+		            <% end %>			
 				</div>
 			</div>
 			<div class="product_tabs">

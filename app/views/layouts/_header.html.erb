@@ -5,20 +5,21 @@
           <nav id="top-links" class="nav">
             <ul class="list-inline">
               <% if logged_in? %>
-                <li><a href="/login">My account</a></li>
+                <li><a href="/user/">My account</a></li>
               <% else %>
-                    <li><a href="/user/">My account</a></li>
+                <li><a href="/login">My account</a></li>
               <% end %>
-              
-              
               <li><a href="" id="wishlist-total" title="My wishlist"><span>My wishlist</span></a></li>
-              <li><a href="/checkout" title="Checkout"><span>Checkout</span></a> </li>
-               <% if logged_in? %>                
-
-                  <li><a rel="nofollow" data-method="delete" href="/logout"><span>Log out</span></a> </li>  
-               <% else %>
-                  <li><%= link_to "Log in", login_path %></li>
-                <% end %>
+              <% if logged_in? %>                
+                <li><a href="checkout_step2" title="Checkout"><span>Checkout</span></a> </li>
+              <% else %>
+              <li><a href="checkout_step1" title="Checkout"><span>Checkout</span></a> </li>
+                <% end %>            
+              <% if logged_in? %>                
+                <li><a rel="nofollow" data-method="delete" href="/logout"><span>Log out</span></a> </li>  
+              <% else %>
+                <li><%= link_to "Log in", login_path %></li>
+              <% end %>
             </ul>
           </nav>
           <div id="search" class="search">      

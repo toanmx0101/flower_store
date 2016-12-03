@@ -1,0 +1,59 @@
+<div class="container">
+	<ul class="breadcrumb">
+		<li><a href="/"><i class="fa fa-home"></i></a></li>
+		<li><a href="shoppingcart">Shopping Cart</a></li>
+		<li ><a href="/checkout" style="display: none;">Checkout</a><span>Checkout</span></li>
+		<li class="last"><a href="/checkout" style="display: none;">Checkout</a><span>Step 2</span></li>
+	</ul>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Step 2: Billing Details</h4>
+		</div>
+		<div class="panel-collapse collapse in" id="collapse-checkout-option" aria-expanded="true" style="">
+			<div class="panel-collapse collapse in" id="collapse-payment-address" aria-expanded="true" style="">
+				<div class="panel-body"><div class="row">
+					<div class="col-sm-6">
+						<fieldset id="account">
+							<legend>Your Personal Details</legend>
+							<div class="form-group" style="display: none;">
+								<label class="control-label">Customer Group</label>
+								<div class="radio">
+									<label>
+										<input name="customer_group_id" value="1" checked="checked" type="radio">Default
+									</label>
+								</div>
+							</div>
+							<div class="form-group required">
+								<label class="control-label" for="input-payment-firstname">Your Name</label>
+								<input name="Your" value="" placeholder="Your Name" id="input-payment-firstname" class="form-control" type="text">
+							</div>
+
+							<div class="form-group required">
+								<label class="control-label" for="input-payment-email">E-Mail</label>
+								<input name="email" value="" placeholder="E-Mail" id="input-payment-email" class="form-control" type="text">
+							</div>
+							<div class="form-group required">
+								<label class="control-label" for="input-payment-telephone">Telephone</label>
+								<input name="telephone" value="" placeholder="Telephone" id="input-payment-telephone" class="form-control" type="text">
+							</div>
+						</fieldset>
+					</div>
+					<div class="col-sm-6">
+						<fieldset id="address" class="required">
+							<legend>Your Address</legend>
+							<div class="form-group required">
+								<label class="control-label" for="input-payment-address">Address</label>
+								<input name="address" value="" placeholder="Address " id="input-payment-address-1" class="form-control" type="text">
+							</div>
+						</fieldset>
+					</div>
+				</div>
+				<div class="buttons clearfix">
+					<div class="pull-right">
+						<input value="Continue" id="button-register" data-loading-text="Loading..." class="btn btn-primary" type="button">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
