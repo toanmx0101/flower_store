@@ -5,7 +5,7 @@
           <nav id="top-links" class="nav">
             <ul class="list-inline">
               <% if logged_in? %>
-                <li><a href="/user/">My account</a></li>
+                <li><a href="/users/<%= current_user.id %>"><%= current_user.name%></a></li>
               <% else %>
                 <li><a href="/login">My account</a></li>
               <% end %>

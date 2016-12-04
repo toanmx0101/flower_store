@@ -1,7 +1,38 @@
 <aside id="column-right" class="col-sm-3 ">
+	<% if logged_in? %>
+		<div class="box affilate info">
+			<div class="box-heading">
+				<h4>My Account</h4>
+			</div>
+			<div class="box-content">
+				<ul>
+					<li><a href="">Edit your account information</a></li>
+				<li><a href="">Change your password</a></li>
+				<li><a href="">Modify your address book entries</a></li>
+				<li><a href="">Modify your wish list</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="box affilate info">
+			<div class="box-heading">
+				<h4>My Orders</h4>
+			</div>
+			<div class="box-content">
+				<ul>
+					<li><a href="">View your order history</a></li>
+					<li><a href="">Downloads</a></li>
+					<li><a href="">Your Reward Points</a></li>
+					<li><a href="">View your return requests</a></li>
+					<li><a href="">Your Transactions</a></li>
+					<li><a href="">Recurring payments</a></li>
+				</ul>
+			</div>
+		</div>
+	<% end %>
+	
 	<div class="box affilate info">
 		<div class="box-heading">
-			<h3>Affiliate</h3>
+			<h4>Affiliate</h4>
 		</div>
 		<div class="box-content">
 			<ul>

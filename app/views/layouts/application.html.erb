@@ -6,38 +6,41 @@
   <%= render 'layouts/shim' %>    
     <title><%= full_title(yield(:title)) %></title>
   <link rel="icon" href="assets/hydrangea.png">
- <link rel="stylesheet" edia="screen" href="/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" edia="screen" href="/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" edia="screen" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" edia="screen" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-   <link rel="stylesheet" edia="screen" href="/assets/owl.carousel.min.js">
-   <link rel="stylesheet" edia="screen" href="/assets/fl-budicons-launch.css">
-   <link rel="stylesheet" edia="screen" href="/assets/fl-line-icon-set.css">
-   <link rel="stylesheet" edia="screen" href="/assets/material-design.css">
-   <link rel="stylesheet" edia="screen" href="/assets/magnificent.css">
-   <link rel="stylesheet" edia="screen" href="/assets/jquery.bxslider.css">
-   <link rel="stylesheet" edia="screen" href="/assets/photoswipe.css">
-   <link rel="stylesheet" edia="screen" href="/assets/jquery.fancybox.css">
-   <link rel="stylesheet" edia="screen" href="/assets/photoswipe.css">
-   <link rel="stylesheet" edia="screen" href="/assets/jquery.fancybox.css">
-   <link rel="stylesheet" edia="screen" href="/assets/owl.carousel.css">
-   <link rel="stylesheet" edia="screen" href="/assets/owl.transitions.css">
-   <link rel="stylesheet" edia="screen" href="/assets/stylesheet.css">
+  <link rel="stylesheet" edia="screen" href="/assets/owl.carousel.min.js">
+  <link rel="stylesheet" edia="screen" href="/assets/fl-budicons-launch.css">
+  <link rel="stylesheet" edia="screen" href="/assets/fl-line-icon-set.css">
+  <link rel="stylesheet" edia="screen" href="/assets/material-design.css">
+  <link rel="stylesheet" edia="screen" href="/assets/magnificent.css">
+  <link rel="stylesheet" edia="screen" href="/assets/jquery.bxslider.css">
+  <link rel="stylesheet" edia="screen" href="/assets/photoswipe.css">
+  <link rel="stylesheet" edia="screen" href="/assets/jquery.fancybox.css">
+  <link rel="stylesheet" edia="screen" href="/assets/photoswipe.css">
+  <link rel="stylesheet" edia="screen" href="/assets/jquery.fancybox.css">
+  <link rel="stylesheet" edia="screen" href="/assets/owl.carousel.css">
+  <link rel="stylesheet" edia="screen" href="/assets/owl.transitions.css">
+  <link rel="stylesheet" edia="screen" href="/assets/stylesheet.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 
+  <script src="/assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
+  <script src="/assets/common.js"></script>
+  <script src="/assets/owl.carousel.min.js"></script>
+  <script src="/assets/jquery.rd-parallax.min.js"></script>
+  <script src="/assets/superfish.min.js"></script>
+  <script src="/assets/jquery.rd-navbar.min.js"></script>
+  <script src="/assets/device.min.js"></script>
 
-<script src="/assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
-<script src="/assets/common.js"></script>
-<script src="/assets/owl.carousel.min.js"></script>
-<script src="/assets/jquery.rd-parallax.min.js"></script>
-<script src="/assets/superfish.min.js"></script>
-<script src="/assets/jquery.rd-navbar.min.js"></script>
-<script src="/assets/device.min.js"></script>
-</head>
+  </head>
+
 <body>
 
 
   <div id="page">
     <%= render 'layouts/header' %>
+
     <div class="" id="">
       <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>

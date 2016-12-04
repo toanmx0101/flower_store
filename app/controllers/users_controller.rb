@@ -25,6 +25,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def add_review
+    add_user_review
+  end
+
   # POST /users
   # POST /users.json
   def create
@@ -85,5 +89,11 @@ class UsersController < ApplicationController
 
      def admin_user
       redirect_to(root_url) unless current_user.admin?
+    end
+
+    def add_user_review
+      if (params[:session][:review] != "")
+        current_user.reviews.create content: params[:session][:review]
+      end
     end
 end

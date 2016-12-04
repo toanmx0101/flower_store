@@ -11,6 +11,7 @@ class User < ApplicationRecord
 	validates :password, presence: true, length: {minimum: 6}, allow_blank: true
 
   has_many :orders
+  has_many :reviews
   # before la user.digest
   # Returns the hash digest of the given string.
   class << self

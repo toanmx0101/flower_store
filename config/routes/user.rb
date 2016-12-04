@@ -30,8 +30,10 @@ Rails.application.routes.draw do
   get    'shoppingcart', to: 'cart#index'
   get    'checkout_success', to: 'cart#checkout_success'
 
+  
 
   resources :users
+  post 'user/add_review', to: 'users#add_review'
   resources :carts, only: [:show, :update]
   post 'cart/add_product_to_cart'
   post 'cart/add_address'
@@ -40,4 +42,7 @@ Rails.application.routes.draw do
   post 'cart/confirm_order'
   post 'cart/checkout_register_account'
   post 'cart/checkout_login'
+  
+  
+
 end
