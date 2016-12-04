@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @reviews = Review.where(user_id: current_user.id).order('created_at DESC');
   end
 
   # GET /users/new
@@ -29,6 +30,10 @@ class UsersController < ApplicationController
     add_user_review
   end
 
+  def add_comment
+    add_user_comment
+  end
+  
   # POST /users
   # POST /users.json
   def create
@@ -94,6 +99,11 @@ class UsersController < ApplicationController
     def add_user_review
       if (params[:session][:review] != "")
         current_user.reviews.create content: params[:session][:review]
+        redirect_to :back
       end
+    end
+
+    def add_user_comment
+      
     end
 end

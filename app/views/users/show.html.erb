@@ -1,178 +1,86 @@
 <div class="container">
 	<h4>New Feeds</h4>
-<div class="row"> 
-	<div id="content" class="col-sm-8"> 
-		<%= form_for(:session, url: user_add_review_path,class: 'form-group') do |f| %>
-		  	<%= f.text_area :review,id: "review-area", class: 'form-control', placeholder: "What do you think?", rows: "5" %>
-		  	<p id="error-empty-content" style="display: none">Your review is empty! Please enter content...</p>
-            <%= f.submit "Post",id: "review-btn", class: "btn pull-right", style: "margin-top: 15px; width: 80px" %>      
-        <% end %>
-		<br><br><br>
-	    <div class="">
-	      <hr>
-	      <div>
-	      	<h4><%= current_user.name %></h4>		
-	      	<div class="dropdown pull-right">
-			    <button class=" dropdown-toggle" type="button" data-toggle="dropdown">
-			    <span class="caret"></span></button>
-			    <ul class="dropdown-menu">
-			      <li><a href="#">Normal</a></li>
-			      <li class="disabled"><a href="#">Disabled</a></li>
-			      <li class="active"><a href="#">Active</a></li>
-			      <li><a href="#">Normal</a></li>
-			    </ul>
-			  </div>
-	      </div>
-	      
-	      <p><span class="glyphicon glyphicon-time"></span>  Sep 27, 2015.</p>
-	      <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5>
-	      <p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-	      
-	      <form id="div1" role="form" style="display: none">
-	        <div  class="form-group" >
-	          <textarea class="form-control" rows="1" required="" ></textarea>
-	        </div>
-	        <button id="submit_1" type="" class="btn btn-success pull-right" >Comment</button>
-	      </form>
+	<div class="row"> 
+		<div id="content" class="col-sm-8"> 
+			<%= form_for(:session, url: user_add_review_path,class: 'form-group') do |f| %>
+			  	<%= f.text_area :review,id: "review-area", class: 'form-control', placeholder: "What do you think?", rows: "5" %>
+			  	<p id="error-empty-content" style="display: none">Your review is empty! Please enter content...</p>
+	            <%= f.submit "Post",id: "review-btn", class: "btn pull-right", style: "margin-top: 15px; width: 80px" %>      
+	        <% end %>
+			<br><br><br>
+			<script>
+				$(document).ready(function(){				    
+				    $("#review-btn").click(function(){
+				    	if (!$("#review-area").val()) {
+					   		$("#error-empty-content").fadeIn();
+						}
+						else{
+							$("#error-empty-content").fadeOut();
 
-	      <button id="show_1"  class="btn btn-success pull-right" >Comment</button>
-	      <script>
-			$(document).ready(function(){
-			    $("#show_1").click(function(){
-			        $("#div1_1").fadeIn();
-			        $("#comment-post_1").fadeIn();
-			        $("#show_1").hide();
-			    });
-			    $("#review-btn").click(function(){
-			    	if (!$("#review-area").val()) {
-				   		$("#error-empty-content").fadeIn();
-					}
-					else{
-						$("#error-empty-content").fadeOut();
-					}
-			    	
-			    
-			});
+						}
+					});
+				});	
 			</script>
-	      
-	      <p><span class="badge">2</span> Comments:</p>
-	      
-	      <div id="comment-post_1" class="row" style="display: none">
-	      	<div class="row"> 
-	      		<div class="col-sm-2 text-center">	          
-		        </div>
-		        <div class="col-sm-10">
-		          <p><strong>Anja</strong> <small>Sep 29, 2015, 9:12 PM</small></p>
-		          <p>Keep up the GREAT work! I am cheering for you!!</p>
-		        </div>
-	      	</div>	       
-	        <div class="row" >
-	        	<div class="col-sm-2 text-center ">
-		        </div>
-		        <div class="col-sm-10" >
-		          <h5><strong>Anja </strong><small>Sep 25, 2015, 8:25 PM</small></h5>
-		          <p>I am so happy for you man! </p>
-		        </div>	
-		    </div>
-	      </div>
-	    </div>
-	    <div class="">
-	      <hr>
-	      <h4><%= current_user.name%></h4>
-	      <p><span class="glyphicon glyphicon-time"></span>  Sep 27, 2015.</p>
-	      <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5>
-	      <p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-	      
-	      <form id="div1" role="form" style="display: none">
-	        <div  class="form-group" >
-	          <textarea class="form-control" rows="1" required="" ></textarea>
-	        </div>
-	        <button id="submit_1" type="" class="btn btn-success pull-right" >Comment</button>
-	      </form>
+		  	<% @reviews.each do |review|%>
+		  		<div class="">
+					<hr>
+					<div>
+						<h4><%= current_user.name %></h4>		
+						<div class="dropdown pull-right">
+					    <button class=" dropdown-toggle" type="button" data-toggle="dropdown">
+					    <span class="caret"></span></button>
+					    <ul class="dropdown-menu">
+					      <li><a href="#">Normal</a></li>
+					      <li class="disabled"><a href="#">Disabled</a></li>
+					      <li class="active"><a href="#">Active</a></li>
+					      <li><a href="#">Normal</a></li>
+					    </ul>
+					  </div>
+					</div>
+					      
+					<p><span class="glyphicon glyphicon-time"></span>  Sep 27, 2015.</p>
+					<p><%= review.content %></p>
 
-	      <button id="show_1"  class="btn btn-success pull-right" >Comment</button>
-	      <script>
-			$(document).ready(function(){
-			    $("#show_1").click(function(){
-			        $("#div1_1").fadeIn();
-			        $("#comment-post_1").fadeIn();
-			        $("#show_1").hide();
-			    });
-			});
-			</script>
-	      
-	      <p><span class="badge">2</span> Comments:</p>
-	      
-	      <div id="comment-post_1" class="row" style="display: none">
-	      	<div class="row"> 
-	      		<div class="col-sm-2 text-center">	          
-		        </div>
-		        <div class="col-sm-10">
-		          <h5><strong>Anja</strong> <small>Sep 29, 2015, 9:12 PM</small></h5>
-		          <p>Keep up the GREAT work! I am cheering for you!!</p>
-		        </div>
-	      	</div>	       
-	        <div class="row" >
-	        	<div class="col-sm-2 text-center ">
-		        </div>
-		        <div class="col-sm-10" >
-		          <h5><strong>Anja </strong><small>Sep 25, 2015, 8:25 PM</small></h5>
-		          <p>I am so happy for you man! </p>
-		        </div>	
-		    </div>
-	      </div>
-	    </div>
-	    <div class="">
-	      <hr>
-	      <h4><%= current_user.name%></h4>
-	      <p><span class="glyphicon glyphicon-time"></span>  Sep 27, 2015.</p>
-	      <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5>
-	      <p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-	      
-	      <form id="div1" role="form" style="display: none">
-	        <div  class="form-group" >
-	          <textarea class="form-control" rows="1" required="" ></textarea>
-	        </div>
-	        <button id="submit_1" type="" class="btn btn-success pull-right" >Comment</button>
-	      </form>
+					<form id="div_<%= review.id %>" role="form" style="display: none">
+						<div  class="form-group" >
+						  <textarea class="form-control" rows="1" required="" ></textarea>
+						</div>
+						<button id="submit_<%= review.id %>" type="" class="btn btn-success pull-right" >Comment</button>
+					</form>
 
-	      <button id="show_1"  class="btn btn-success pull-right" >Comment</button>
-	      <script>
-			$(document).ready(function(){
-			    $("#show_1").click(function(){
-			        $("#div1_1").fadeIn();
-			        $("#comment-post_1").fadeIn();
-			        $("#show_1").hide();
-			    });
-			});
-			</script>
-	      
-	      <p><span class="badge">2</span> Comments:</p>
-	      
-	      <div id="comment-post_1" class="row" style="display: none">
-	      	<div class="row"> 
-	      		<div class="col-sm-2 text-center">	          
-		        </div>
-		        <div class="col-sm-10">
-		          <h5><strong>Anja</strong> <small>Sep 29, 2015, 9:12 PM</small></h5>
-		          <p>Keep up the GREAT work! I am cheering for you!!</p>
-		        </div>
-	      	</div>	       
-	        <div class="row" >
-	        	<div class="col-sm-2 text-center ">
-		        </div>
-		        <div class="col-sm-10" >
-		          <h5><strong>Anja </strong><small>Sep 25, 2015, 8:25 PM</small></h5>
-		          <p>I am so happy for you man! </p>
-		        </div>	
-		    </div>
-	      </div>
-	    </div>
-	    
+					<button id="show_<%= review.id %>"  class="btn btn-success pull-right" >Comment</button>
+					<script>
+						$(document).ready(function(){
+						    $("#show_<%= review.id %>").click(function(){
+						        $("#div_<%= review.id %>").fadeIn();
+						        $("#comment-post_<%=review.id%>").fadeIn();
+						        $("#show_<%=review.id%>").hide();
+						    });
+						    $("#review-btn").click(function(){
+						    	if (!$("#review-area").val()) {
+							   		$("#error-empty-content").fadeIn();
+								}
+								else{
+									$("#error-empty-content").fadeOut();
+								}
+							});
+						});	
+					</script>
+					<p><span class="badge">1</span> Comments:</p>
+
+					<div id="comment-post_<%=review.id%>" class="row" style="display: none">
+						<div class="row">
+							<p class="col-sm-1"> &nbsp</p>  
+						    <div class="col-sm-7">
+						      <p><strong>Quyền </strong> <small>Sep 29, 2015, 9:12 PM</small></p>
+						      <p>chủ yếu là tấm lòng thôi ,người ta cũng chả chê gì mình đâu nhưng cũng phải làm cho tươm tất</p>		      		     
+						    </div>
+						</div>
+					</div>
+				</div>
+		  	<% end %>	   
+		</div>		
+			
+		<%= render 'users/right_sidenav'%> 
 	</div>
-		
-
-		
-	<%= render 'users/right_sidenav'%>
-</div>
 </div>

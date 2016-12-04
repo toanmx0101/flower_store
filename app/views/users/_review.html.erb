@@ -1,0 +1,56 @@
+  <div class="">
+	<hr>
+	<div>
+		<h4><%= current_user.name %></h4>		
+		<div class="dropdown pull-right">
+	    <button class=" dropdown-toggle" type="button" data-toggle="dropdown">
+	    <span class="caret"></span></button>
+	    <ul class="dropdown-menu">
+	      <li><a href="#">Normal</a></li>
+	      <li class="disabled"><a href="#">Disabled</a></li>
+	      <li class="active"><a href="#">Active</a></li>
+	      <li><a href="#">Normal</a></li>
+	    </ul>
+	  </div>
+	</div>
+	      
+	<p><span class="glyphicon glyphicon-time"></span>  Sep 27, 2015.</p>
+	<p><%= review.content %></p>
+
+	<form id="div_<%= review.id %>" role="form" style="display: none">
+		<div  class="form-group" >
+		  <textarea class="form-control" rows="1" required="" ></textarea>
+		</div>
+		<button id="submit_<%= review.id %>" type="" class="btn btn-success pull-right" >Comment</button>
+	</form>
+
+	<button id="show_<%= review.id %>"  class="btn btn-success pull-right" >Comment</button>
+	<script>
+		$(document).ready(function(){
+		    $("#show_<%= review.id %>").click(function(){
+		        $("#div_<%= review.id %>").fadeIn();
+		        $("#comment-post_<%=review.id%>").fadeIn();
+		        $("#show_<%=review.id%>").hide();
+		    });
+		    $("#review-btn").click(function(){
+		    	if (!$("#review-area").val()) {
+			   		$("#error-empty-content").fadeIn();
+				}
+				else{
+					$("#error-empty-content").fadeOut();
+				}
+			});
+		});	
+	</script>
+	<p><span class="badge">2</span> Comments:</p>
+
+	<div id="comment-post_<%=review.id%>" class="row" style="display: none">
+		<div class="row">
+			<p class="col-sm-1"> &nbsp</p>  
+		    <div class="col-sm-7">
+		      <p><strong>Anja</strong> <small>Sep 29, 2015, 9:12 PM</small></p>
+		      <p>Keep up the GREAT work! I am cheering for you!!</p>		      		     
+		    </div>
+		</div>
+	</div>
+</div>
