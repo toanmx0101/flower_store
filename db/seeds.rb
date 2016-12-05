@@ -1,6 +1,6 @@
 puts "Create 20 Products"
 
-Product.create(:name =>'Autumn Shades Perfect Gift',:category_id =>'1',:description=>'What do we do when we want to show our thankfulness? We send a card, a gift or something like that. ..',:image=>'pro_01',:price=>'25.60',:status => false,:rate =>'0.00')
+Product.create(:name =>'Autumn Shades Perfect Gift',:category_id =>'1',:description=>'What do we do when we want to show our thankfulness? We send a card, a gift or something like that. ..',:image=>'pro_01.png',:price=>'25.60',:status => false,:rate =>'0.00')
 Product.create(:name =>'Grand Prix Rose Hand tied',:category_id =>'1',:description=>'What do we do when we want to show our thankfulness? We send a card, a gift or something like that. ..',:image=>'pro_02',:price=>'80.00 ',:status => false)
 Product.create(:name =>'New Baby Vibrant Hand tied or Vase',:category_id =>'1',:description=>'',:image=>'pro_03',:price=>'20.80')
 Product.create(:name =>'Watering Can with Bailey Bear',:category_id =>'1',:description=>'',:image=>'pro_04',:price=>'16.00 ',:status => true)

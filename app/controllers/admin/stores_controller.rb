@@ -4,7 +4,7 @@ class Admin::StoresController < ApplicationController
   # GET /admin/stores
   # GET /admin/stores.json
   def index
-    @admin_stores = Admin::Store.all
+    @admin_stores = Store.all
   end
 
   # GET /admin/stores/1
@@ -14,7 +14,7 @@ class Admin::StoresController < ApplicationController
 
   # GET /admin/stores/new
   def new
-    @admin_store = Admin::Store.new
+    @admin_store = Store.new
   end
 
   # GET /admin/stores/1/edit
@@ -24,7 +24,7 @@ class Admin::StoresController < ApplicationController
   # POST /admin/stores
   # POST /admin/stores.json
   def create
-    @admin_store = Admin::Store.new(admin_store_params)
+    @admin_store = Store.new(admin_store_params)
 
     respond_to do |format|
       if @admin_store.save
@@ -64,7 +64,7 @@ class Admin::StoresController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_store
-      @admin_store = Admin::Store.find(params[:id])
+      @admin_store = Store.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

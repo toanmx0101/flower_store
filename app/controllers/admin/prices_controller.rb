@@ -4,7 +4,7 @@ class Admin::PricesController < ApplicationController
   # GET /admin/prices
   # GET /admin/prices.json
   def index
-    @admin_prices = Admin::Price.all
+    @admin_prices = Price.all
   end
 
   # GET /admin/prices/1
@@ -14,7 +14,7 @@ class Admin::PricesController < ApplicationController
 
   # GET /admin/prices/new
   def new
-    @admin_price = Admin::Price.new
+    @admin_price = Price.new
   end
 
   # GET /admin/prices/1/edit
@@ -24,7 +24,7 @@ class Admin::PricesController < ApplicationController
   # POST /admin/prices
   # POST /admin/prices.json
   def create
-    @admin_price = Admin::Price.new(admin_price_params)
+    @admin_price = Price.new(admin_price_params)
 
     respond_to do |format|
       if @admin_price.save
@@ -64,7 +64,7 @@ class Admin::PricesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_price
-      @admin_price = Admin::Price.find(params[:id])
+      @admin_price = Price.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
