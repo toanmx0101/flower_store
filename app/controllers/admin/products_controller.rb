@@ -33,6 +33,7 @@ class Admin::ProductsController < Admin::BaseController
       else
         format.html { render :new }
         format.json { render json: @admin_product.errors, status: :unprocessable_entity }
+      end
     end
   end
 
