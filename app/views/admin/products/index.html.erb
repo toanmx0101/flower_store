@@ -41,7 +41,12 @@
                     <a href="products/<%= product.id %>" type="button" class="btn btn-success btn-filter" style="width: 80px">Views</a>
                   
                     <a href="" type="button" class="btn btn-warning btn-filter" style="width: 80px">Edit </a>
-                    <a href="" type="button" class="btn btn-danger btn-filter" style="width: 80px">Delete</a>
+
+                    <%= link_to "Delete", admin_product_path(product), method: :delete, style: "width: 80px",class: "btn btn-danger btn-filter",
+                      data: {confirm: "Are you sure that product?"} %>
+
+
+                    <!-- <a href="" type="button" class="btn btn-danger btn-filter" style="width: 80px">Delete</a> -->
                     </td>
                     <% end %>
 
