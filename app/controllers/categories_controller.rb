@@ -52,6 +52,8 @@ class CategoriesController < ApplicationController
     end
   end
 
+ 
+
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
@@ -72,4 +74,6 @@ class CategoriesController < ApplicationController
     def category_params
       params.require(:category).permit(:name, :description)
     end
+
+   
 end

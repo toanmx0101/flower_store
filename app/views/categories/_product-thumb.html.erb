@@ -15,8 +15,7 @@
   </div>
   <div class="caption">
     <div class="name"><a href="/products/<%= product.id%>"><%= product.name%> </a></div>
-    <div class="description"></div>
-    <div class="description-small"><%= product.description %></div>
+    <div class="description"><%= product.description %></div>
     <div class="price price-product">
       <span class="price-new">$<%= product.price %>0</span> 
       <% if !(product.status == false ) %>
