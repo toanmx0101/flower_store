@@ -91,6 +91,21 @@
 		               	<%= f.hidden_field :product_id, :value => @product.id%>
 		              	<%= f.submit "Add to cart", class: "btn btn-primary" %>      
 		            <% end %>			
+		            <script type="text/javascript">
+		            	<script>
+							$(document).ready(function(){				    
+							    $("#review-btn").click(function(){
+							    	if (!$("#review-area").val()) {
+								   		$("#error-empty-content").fadeIn();
+									}
+									else{
+										$("#error-empty-content").fadeOut();
+
+									}
+								});
+							});	
+						</script>
+		            </script>
 				</div>
 			</div>
 			<div class="product_tabs">
@@ -108,7 +123,7 @@
 				</ul>
 				<div class="tab-content">										
 					<div id="tab-description" class="tab-block product-desc product-section active">
-						<p>What do we do when we want to show our thankfulness? We send a card.</p> 
+						<p><%= @product.description%></p> 
 						<div class="clearfix"></div>
 					</div>
 					

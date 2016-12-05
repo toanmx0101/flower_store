@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 	resources :orders
   resources :categories
+  
   resources :products
   # For details on the DSL available within this file, see http:guides.rubyonrails.orgrouting.html
   root "static_pages#home"
@@ -30,7 +31,7 @@ Rails.application.routes.draw do
   get    'shoppingcart', to: 'cart#index'
   get    'checkout_success', to: 'cart#checkout_success'
 
-  
+  post 'category/sort_product'
 
   resources :users
   post 'user/add_review', to: 'users#add_review'

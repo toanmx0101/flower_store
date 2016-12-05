@@ -7,11 +7,15 @@
 		<div id="content" class="col-sm-12">
 			<h1><i class=""></i>Shopping Cart
 			</h1>
-
-			<%= render 'cart/list_products'%>
+			<% if session[:current_cart] == {} || session[:current_cart].nil?  %>	
+				<p>Your shopping cart is empty</p>
+				<br>
+			<% else %>	
+				<%= render 'cart/list_products'%>
+			<% end %>	
 			<div class="buttons">
 				<div class="pull-left"><a href="/" class="btn btn-default">Continue Shopping</a></div>
-				<div class="pull-right"><a href="/checkout_step1" class="btn btn-primary checkout">Checkout<i class="material-design-forward18"></i></a></div>
+				<div class="pull-right"><a href="/checkout_step1" class="btn btn-primary checkout">Checkout</a></div>
 			</div>
 		</div>
 	</div>

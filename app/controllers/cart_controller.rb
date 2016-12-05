@@ -65,14 +65,17 @@ class CartController < ApplicationController
 			if !(session[:current_cart].nil?)
 				if (session[:current_cart].key?(id.to_s))
 					session[:current_cart][id.to_s] = session[:current_cart][id.to_s] + quantity.to_i 
+					
 				end	
 				if !(session[:current_cart].key? (id.to_s))
-							session[:current_cart][id.to_i] = quantity.to_i 
+					session[:current_cart][id.to_i] = quantity.to_i 
+					
 				end
 			end		
 
 			if (session[:current_cart].nil?)
 				session[:current_cart] = {id.to_i => quantity.to_i	}
+				
 			end	
 		end
 
@@ -97,7 +100,7 @@ class CartController < ApplicationController
 			
 			(get_json_cart session[:current_cart]).each do |p|
 				order.order_details.create  product_detail_id: p[:product_detail_id]  ,product_name: p[:name],product_type: p[:type],  product_details_code: p[:code], quantity: p[:count], price: p[:current_price]
-				binding.pry					
+				session[:current_cart].clear					
 			end			      
 			redirect_to checkout_success_path
 		end	
