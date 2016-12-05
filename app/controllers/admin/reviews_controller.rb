@@ -4,7 +4,7 @@ class Admin::ReviewsController < ApplicationController
   # GET /admin/reviews
   # GET /admin/reviews.json
   def index
-    @admin_reviews = Admin::Review.all
+    @admin_reviews = Review.all
   end
 
   # GET /admin/reviews/1
@@ -14,7 +14,7 @@ class Admin::ReviewsController < ApplicationController
 
   # GET /admin/reviews/new
   def new
-    @admin_review = Admin::Review.new
+    @admin_review = Review.new
   end
 
   # GET /admin/reviews/1/edit
@@ -24,7 +24,7 @@ class Admin::ReviewsController < ApplicationController
   # POST /admin/reviews
   # POST /admin/reviews.json
   def create
-    @admin_review = Admin::Review.new(admin_review_params)
+    @admin_review = Review.new(admin_review_params)
 
     respond_to do |format|
       if @admin_review.save
@@ -64,7 +64,7 @@ class Admin::ReviewsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_review
-      @admin_review = Admin::Review.find(params[:id])
+      @admin_review = Review.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

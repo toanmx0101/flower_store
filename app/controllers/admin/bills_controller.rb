@@ -4,7 +4,7 @@ class Admin::BillsController < ApplicationController
   # GET /admin/bills
   # GET /admin/bills.json
   def index
-    @admin_bills = Admin::Bill.all
+    @admin_bills = Bill.all
   end
 
   # GET /admin/bills/1
@@ -14,7 +14,7 @@ class Admin::BillsController < ApplicationController
 
   # GET /admin/bills/new
   def new
-    @admin_bill = Admin::Bill.new
+    @admin_bill = Bill.new
   end
 
   # GET /admin/bills/1/edit
@@ -24,7 +24,7 @@ class Admin::BillsController < ApplicationController
   # POST /admin/bills
   # POST /admin/bills.json
   def create
-    @admin_bill = Admin::Bill.new(admin_bill_params)
+    @admin_bill = Bill.new(admin_bill_params)
 
     respond_to do |format|
       if @admin_bill.save
@@ -64,7 +64,7 @@ class Admin::BillsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_bill
-      @admin_bill = Admin::Bill.find(params[:id])
+      @admin_bill = Bill.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

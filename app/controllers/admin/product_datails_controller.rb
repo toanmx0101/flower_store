@@ -4,7 +4,7 @@ class Admin::ProductDatailsController < ApplicationController
   # GET /admin/product_datails
   # GET /admin/product_datails.json
   def index
-    @admin_product_datails = Admin::ProductDatail.all
+    @admin_protails = Admin::ProductDatail.all
   end
 
   # GET /admin/product_datails/1
@@ -14,7 +14,7 @@ class Admin::ProductDatailsController < ApplicationController
 
   # GET /admin/product_datails/new
   def new
-    @admin_product_datail = Admin::ProductDatail.new
+    @admin_product_datail = ProductDatail.new
   end
 
   # GET /admin/product_datails/1/edit
@@ -24,7 +24,7 @@ class Admin::ProductDatailsController < ApplicationController
   # POST /admin/product_datails
   # POST /admin/product_datails.json
   def create
-    @admin_product_datail = Admin::ProductDatail.new(admin_product_datail_params)
+    @admin_product_datail = ProductDatail.new(admin_product_datail_params)
 
     respond_to do |format|
       if @admin_product_datail.save
@@ -64,7 +64,7 @@ class Admin::ProductDatailsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_product_datail
-      @admin_product_datail = Admin::ProductDatail.find(params[:id])
+      @admin_product_datail = ProductDatail.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
