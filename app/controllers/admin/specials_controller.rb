@@ -4,7 +4,7 @@ class Admin::SpecialsController < ApplicationController
   # GET /admin/specials
   # GET /admin/specials.json
   def index
-    @admin_specials = Admin::Special.all
+    @admin_specials = Special.all
   end
 
   # GET /admin/specials/1
@@ -14,7 +14,7 @@ class Admin::SpecialsController < ApplicationController
 
   # GET /admin/specials/new
   def new
-    @admin_special = Admin::Special.new
+    @admin_special = Special.new
   end
 
   # GET /admin/specials/1/edit
@@ -24,7 +24,7 @@ class Admin::SpecialsController < ApplicationController
   # POST /admin/specials
   # POST /admin/specials.json
   def create
-    @admin_special = Admin::Special.new(admin_special_params)
+    @admin_special = Special.new(admin_special_params)
 
     respond_to do |format|
       if @admin_special.save
@@ -64,7 +64,7 @@ class Admin::SpecialsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_special
-      @admin_special = Admin::Special.find(params[:id])
+      @admin_special = Special.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

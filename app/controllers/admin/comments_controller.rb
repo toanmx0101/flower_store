@@ -4,7 +4,7 @@ class Admin::CommentsController < ApplicationController
   # GET /admin/comments
   # GET /admin/comments.json
   def index
-    @admin_comments = Admin::Comment.all
+    @admin_comments = Comment.all
   end
 
   # GET /admin/comments/1
@@ -14,7 +14,7 @@ class Admin::CommentsController < ApplicationController
 
   # GET /admin/comments/new
   def new
-    @admin_comment = Admin::Comment.new
+    @admin_comment = Comment.new
   end
 
   # GET /admin/comments/1/edit
@@ -24,7 +24,7 @@ class Admin::CommentsController < ApplicationController
   # POST /admin/comments
   # POST /admin/comments.json
   def create
-    @admin_comment = Admin::Comment.new(admin_comment_params)
+    @admin_comment = Comment.new(admin_comment_params)
 
     respond_to do |format|
       if @admin_comment.save
@@ -64,7 +64,7 @@ class Admin::CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_comment
-      @admin_comment = Admin::Comment.find(params[:id])
+      @admin_comment = Comment.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

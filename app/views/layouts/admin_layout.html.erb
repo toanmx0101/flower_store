@@ -26,11 +26,6 @@
 <% if logged_in? and current_user.admin? %>
 
 <body class="hold-transition skin-blue sidebar-mini">
-    <div class="container" id="ctn">
-      <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-        <% end %>
-    </div>
   <%= render 'layouts/admin/admin' %>
 <script src="/assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
@@ -54,6 +49,7 @@
 <script src="/assets/dist/js/pages/dashboard.js"></script>
 <script src="/assets/dist/js/demo.js"></script>
 
+<%= javascript_include_tag 'admin/application',media: 'all', 'data-turbolinks-track': 'reload' %>
 
 </body>
 <% else %>

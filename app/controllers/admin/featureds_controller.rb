@@ -4,7 +4,7 @@ class Admin::FeaturedsController < ApplicationController
   # GET /admin/featureds
   # GET /admin/featureds.json
   def index
-    @admin_featureds = Admin::Featured.all
+    @admin_featureds = Featured.all
   end
 
   # GET /admin/featureds/1
@@ -14,7 +14,7 @@ class Admin::FeaturedsController < ApplicationController
 
   # GET /admin/featureds/new
   def new
-    @admin_featured = Admin::Featured.new
+    @admin_featured = Featured.new
   end
 
   # GET /admin/featureds/1/edit
@@ -24,7 +24,7 @@ class Admin::FeaturedsController < ApplicationController
   # POST /admin/featureds
   # POST /admin/featureds.json
   def create
-    @admin_featured = Admin::Featured.new(admin_featured_params)
+    @admin_featured = Featured.new(admin_featured_params)
 
     respond_to do |format|
       if @admin_featured.save
@@ -64,7 +64,7 @@ class Admin::FeaturedsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_featured
-      @admin_featured = Admin::Featured.find(params[:id])
+      @admin_featured = Featured.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
