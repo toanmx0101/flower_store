@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get    'checkout_step5', to: 'cart#checkout_step5'
   get    'shoppingcart', to: 'cart#index'
   get    'checkout_success', to: 'cart#checkout_success'
+  get    'search', to: 'static_pages#search'
 
   post 'category/sort_product'
 

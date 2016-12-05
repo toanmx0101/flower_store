@@ -1,0 +1,101 @@
+<div class="container">
+  <ul class="breadcrumb">
+    <li><a href=""><i class="fa fa-home"></i></a></li>
+    <li class="last"><a href="" style="display: none;">Search</a><span>Search</span></li>
+  </ul>
+  <div class="row">
+    <div id="content" class="col-sm-9">
+      <%= search_form_for @q, url: "#{request.fullpath}" do |f| %> 
+        <div>
+          <h1 class="tx-breaks">Search</h1>
+          <label class="control-label" for="input-search">Search Criteria</label>
+          <div class="row">
+            <div class="col-sm-4">
+              <!-- <input name="search" value="" placeholder="Keywords" class="form-control" type="text"> -->
+              <%= f.search_field :name_cont, placeholder: "Product Name", class: "form-control" %>
+              <br>
+            </div>
+            <div class="col-sm-3">
+              <select name="category_id" class="form-control">
+                <option value="">All Categories</option>
+                <option value="">Corporate</option>
+                <option value="">Love &amp; Romance</option>
+                <option value="">Sympathy</option>
+                <option value="">New Baby</option>
+                <option value="">Christmas</option>
+              </select>
+              <br>
+            </div>
+            <div class="col-sm-12 col-lg-3">
+            
+            </div>
+          </div>
+          <p>
+          
+          </p>
+          <!-- <input value="Search" id="button-search" class="btn btn-primary" type="button"> -->
+          <%= f.submit "Search", class: "btn btn-primary" %>
+          <br><br>
+        </div>
+      <% end %>
+      
+    </div>
+
+  </div>    
+</div>
+
+<div class="container">
+  <div class="product-filter clearfix">
+    <div class="row">
+      <div class="col-sm-12 col-md-2">
+        <label class="control-label" for="input-sort">Sort By:</label>
+      </div>
+      <div class="col-sm-12 col-md-3">
+        <select id="input-sort" class="form-control col-sm-3" onchange="location = this.value;">
+        <option value="" selected="selected">Default</option>
+        <option value="">Name (A - Z)</option>
+        <option value="">Name (Z - A)</option>
+        <option value="">Price (Low &gt; High)</option>
+        <option value="">Price (High &gt; Low)</option>
+      </select>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+    <!-- <div class="product-layout product-list col-xs-12">
+      <div class="product-thumb">
+        <div class="image">
+          <a class="lazy lazy-loaded" style="padding-bottom: 100%" href=""> <img alt="" title="" class="img-responsive" data-src="" src="http://livedemo00.template-help.com/opencart_55697_v1/image/cache/catalog/product-25-270x270.png"> </a>
+          <div class="stickers">
+          </div>
+        </div>
+        <div class="caption">
+          <div class="name"><a href="">Product Name</a></div>
+          <div class="description">product.description</div>
+          <div class="price price-product">$24.00 </div>
+          <div class="cart-button">
+            <button class="btn btn-add" type="button" onclick="cart.add('36');"><span>Add to Cart</span></button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  <% @products.each do |f| %>
+    <div class="product-layout product-list col-xs-12">
+      <div class="product-thumb">
+        <div class="image">
+          <a class="lazy lazy-loaded" style="padding-bottom: 100%" href=""> <img alt="" title="" class="img-responsive" data-src="" src="http://livedemo00.template-help.com/opencart_55697_v1/image/cache/catalog/product-25-270x270.png"> </a>
+          <div class="stickers"></div>
+        </div>
+        <div class="caption">
+          <div class="name"><a href=""><%= f.name %></a></div>
+          <div class="description"><%= f.description %></div>
+          <div class="price price-product">$24.00 </div>
+          <div class="cart-button">
+            <button class="btn btn-add" type="button" onclick="cart.add('36');"><span>Add to Cart</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
