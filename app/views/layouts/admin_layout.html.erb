@@ -17,10 +17,7 @@
   <link rel="stylesheet" edia="screen" href="/assets/plugins/daterangepicker/daterangepicker.css">
   <link rel="stylesheet" edia="screen" href="/assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
-  <link href="/assets/admin/static_pages.css" media="screen" rel="stylesheet" />
-  <link href="/assets/admin/static_pages.scss" media="screen" rel="stylesheet" />
-  <link href="/assets/admin/styles.css" media="screen" rel="stylesheet" />
-  <link href="/assets/admin/users.scss" media="screen" rel="stylesheet" />
+
 </head>
 
 <% if logged_in? and current_user.admin? %>
@@ -64,26 +61,24 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
       <p class="login-box-msg">Sign in to start your session</p>
-
-          <%= form_for(:session, url: login_path) do |f| %>
-
+      <%= form_for(:session, url: login_path) do |f| %>
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control', :required => true %>
-
       <%= f.label :password %>  
       <%= f.password_field :password, class: 'form-control', :required => true %>
-
-       <%= f.label :remember_me, class: "checkbox inline" do %>
-       <%= f.check_box:remember_me %>
-       <span>&nbsp&nbsp&nbsp&nbsp Remember</span>
-       <% end %>
-
+       <div class="form-group"> 
+        <div class="checkbox"> 
+          <%= f.label :remember_me do %> 
+            <%= f.check_box :remember_me %> Remember me 
+          <% end %> 
+        </div> 
+      </div>
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>
           <!-- /.social-auth-links -->
 
           <a href="#">I forgot my password</a><br>
-          <a href="register.html" class="text-center">Register a new membership</a>
+          <a href="#" class="text-center">Register a new membership</a>
 
         </div>
         <!-- /.login-box-body -->

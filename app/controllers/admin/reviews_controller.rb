@@ -1,4 +1,4 @@
-class Admin::ReviewsController < ApplicationController
+class Admin::ReviewsController < Admin::BaseController
   before_action :set_admin_review, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/reviews

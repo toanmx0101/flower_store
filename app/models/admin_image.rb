@@ -1,2 +1,0 @@
-class AdminImage < ApplicationRecord
-end

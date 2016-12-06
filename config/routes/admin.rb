@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :users
     resources :images
     resources :orders
+    resources :sessions
+    resources :product_details
     
     get '', to: 'dashboard#home', as: '/' 
 

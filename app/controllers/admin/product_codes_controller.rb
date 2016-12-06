@@ -1,4 +1,4 @@
-class Admin::ProductCodesController < ApplicationController
+class Admin::ProductCodesController < Admin::BaseController
   before_action :set_admin_product_code, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/product_codes

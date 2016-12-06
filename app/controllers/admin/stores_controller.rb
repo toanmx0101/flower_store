@@ -1,4 +1,4 @@
-class Admin::StoresController < ApplicationController
+class Admin::StoresController < Admin::BaseController
   before_action :set_admin_store, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/stores

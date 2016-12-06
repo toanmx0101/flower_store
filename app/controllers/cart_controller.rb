@@ -82,9 +82,6 @@ class CartController < ApplicationController
 		def add_address_order
 			if params[:payment_address] == "existing"
 				session[:address] = params[:session][:address]
-				session[:name] = current_user.name
-				session[:address] = current_user.address
-				session[:phonenumber] = current_user.phone
 			else
 				session[:name] = params[:session][:new_name]
 				session[:address] = params[:session][:new_name]
@@ -99,8 +96,8 @@ class CartController < ApplicationController
 		end
 
 		def confirm
-			order = current_user.orders.create requirement: session[:comment], address: session[:address],name: session[:name],phonenumber: session[:phonenumber]
-			binding.pry
+			order = current_user.orders.create requirement: session[:comment], phonenumber:  session[:address]
+			
 			(get_json_cart session[:current_cart]).each do |p|
 				order.order_details.create  product_detail_id: p[:product_detail_id]  ,product_name: p[:name],product_type: p[:type],  product_details_code: p[:code], quantity: p[:count], price: p[:current_price]
 				session[:current_cart].clear					

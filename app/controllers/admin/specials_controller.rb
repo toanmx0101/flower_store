@@ -1,4 +1,4 @@
-class Admin::SpecialsController < ApplicationController
+class Admin::SpecialsController < Admin::BaseController
   before_action :set_admin_special, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/specials

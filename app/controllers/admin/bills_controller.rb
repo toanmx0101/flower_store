@@ -1,4 +1,4 @@
-class Admin::BillsController < ApplicationController
+class Admin::BillsController < Admin::BaseController
   before_action :set_admin_bill, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/bills
