@@ -40,8 +40,13 @@
                         </div>
                       </td>
                       <td>
+                      <td>
                       <%= link_to "Views", admin_product_path(product),style: "width: 80px",class: "btn btn-success btn-filter" %>
+                      </td>
+                      <td>
                         <a href="" type="button" class="btn btn-warning btn-filter" style="width: 80px">Edit </a>
+                        </td>
+                        <td>
                         <%= link_to "Delete", admin_product_path(product), method: :delete, style: "width: 80px",class: "btn btn-danger btn-filter",
                         data: {confirm: "Are you sure that product?"} %>
                       </td>

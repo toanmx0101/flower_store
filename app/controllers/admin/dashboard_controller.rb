@@ -3,6 +3,6 @@ class Admin::DashboardController < Admin::BaseController
 	def home
 		@number_user = User.count
 		@number_order = Order.count
-		
+		@number_review = Product.count
 	end
 end

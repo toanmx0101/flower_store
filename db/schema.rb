@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 20161123061440) do
     t.string   "email"
     t.string   "address"
     t.string   "phone"
+    t.text     "avatar"
     t.string   "password_digest"
     t.string   "remember_digest"
     t.boolean  "admin"
