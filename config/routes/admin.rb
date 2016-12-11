@@ -5,8 +5,6 @@ Rails.application.routes.draw do
     resources :images
     resources :orders
     resources :sessions
-
-
     get '', to: 'dashboard#home', as: '/' 
 
     resource :dashboard do

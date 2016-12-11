@@ -4,5 +4,6 @@ class Admin::DashboardController < Admin::BaseController
 		@number_user = User.count
 		@number_order = Order.count
 		@number_review = Product.count
+
 	end
 end

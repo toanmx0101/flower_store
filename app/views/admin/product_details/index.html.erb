@@ -1,0 +1,54 @@
+ <%  provide(:title,"product details") %>
+
+ <h1>List Proudct details</h1>
+ <div class="row">
+  <div class="col-xs-12">
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">Responsive Hover Table</h3>
+
+        <div class="box-tools">
+          <div class="input-group input-group-sm" style="width: 150px;">
+            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+            <div class="input-group-btn">
+              <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body table-responsive no-padding">
+        <table class="table table-hover">
+          <tbody><tr>
+            <th>Type product</th>
+            <th>Product</th>
+            <th>Code</th>
+            <th>Price</th>
+            <th>New</th>
+            <th>Discount</th>
+            <th colspan="3"></th>
+          </tr>
+          <% @admin_product_details.each do |admin_product_detail| %>
+          <tr>
+            <td><%= admin_product_detail.type_product %></td>
+            <td><%= admin_product_detail.product_id %></td>
+            <td><%= admin_product_detail.code %></td>
+            <td><%= admin_product_detail.price %></td>
+            <td><%= admin_product_detail.new %></td>
+            <td><%= admin_product_detail.discount %></td>
+            <td><%= link_to 'Show', admin_product_details_url %></td>
+            <td><%= link_to 'Edit', edit_admin_product_detail_path(admin_product_detail) %></td>
+            <td><%= link_to 'Destroy', admin_product_detail_path(admin_product_detail), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+          <% end %>
+
+        </tbody></table>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+</div>
+
+<%= link_to 'New Admin Product Detail', new_admin_product_detail_url %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type product:</strong>
+  <%= @admin_product_detail.type_product %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @admin_product_detail.product_id %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @admin_product_detail.code %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @admin_product_detail.price %>
+</p>
+
+<p>
+  <strong>New:</strong>
+  <%= @admin_product_detail.new %>
+</p>
+
+<p>
+  <strong>Discount:</strong>
+  <%= @admin_product_detail.discount %>
+</p>
+
+<%= link_to 'Edit', edit_admin_product_detail_path(@admin_product_detail) %> |
+<%= link_to 'Back', admin_product_details_path %>
