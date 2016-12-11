@@ -4,7 +4,7 @@ class Admin::OrdersController < ApplicationController
   # GET /admin/orders
   # GET /admin/orders.json
   def index
-    @admin_orders = Admin::Order.all
+    @admin_orders = Order.all
   end
 
   # GET /admin/orders/1
@@ -14,7 +14,7 @@ class Admin::OrdersController < ApplicationController
 
   # GET /admin/orders/new
   def new
-    @admin_order = Admin::Order.new
+    @admin_order = Order.new
   end
 
   # GET /admin/orders/1/edit
@@ -24,7 +24,7 @@ class Admin::OrdersController < ApplicationController
   # POST /admin/orders
   # POST /admin/orders.json
   def create
-    @admin_order = Admin::Order.new(admin_order_params)
+    @admin_order = Order.new(admin_order_params)
 
     respond_to do |format|
       if @admin_order.save
@@ -64,7 +64,7 @@ class Admin::OrdersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_order
-      @admin_order = Admin::Order.find(params[:id])
+      @admin_order = Order.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

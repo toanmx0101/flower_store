@@ -1,60 +1,140 @@
- <%  provide(:title,"Product") %>
-
-<div class="container">
-  <div class="row">
-    <section class="content">
-      <h1>List products</h1>
-      <div class="col-md-10">
-        <div class="panel panel-default">
-          <div class="panel-body">
-
-            <div class="table-container">
-              <table class="table table-filter">
-                <tbody>
-                  <% @admin_products.each do |product| %>
-                  <tr data-status="pagado">
-                    <td>
-                      <div class="ckbox">
-                        <input type="checkbox" id="checkbox1">
-                        <label for="checkbox1"></label>
-                      </div>
-                    </td>
-                    <td>
-                      <a href="products/<%= product.id %>" class="star">
-                        <i class="glyphicon glyphicon-star"></i>
-                      </a>
-                    </td>
-                    <td>
-                      <div class="media">
-                        <%=link_to(image_tag product.image, :class=>"work", :size => "128x128") %>
-                        <div class="media-body">
-                          <h4 class="title">
-                            <%= product.name %>
-                            <span class="pull-right pagado">(<%= product.category_id %>)</span>
-                          </h4>
-                          <p class="summary"><%= product.description %></p>
+   <%  provide(:title,"Product") %>
+   <section class="content">
+    <div class="row">
+      <div class="nav-tabs-custom">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#activity" data-toggle="tab">List Products</a></li>
+            <li><a href="#timeline" data-toggle="tab">New Proudcts</a></li>
+            <li><a href="#settings" data-toggle="tab">Add Image</a></li>
+            <li><a href="#product_datails" data-toggle="tab">Products Datails</a></li>
+            <li><a href="#product_codes" data-toggle="tab">Products Codes</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="active tab-pane" id="activity">
+              <div class="table-container">
+                <table class="table table-filter">
+                  <tbody>
+                    <% @admin_products.each do |product| %>
+                    <tr data-status="pagado">
+                      <td>
+                        <div class="ckbox">
+                          <input type="checkbox" id="checkbox1">
+                          <label for="checkbox1"></label>
                         </div>
+                      </td>
+                      <td>
+                        <a href="products/<%= product.id %>" class="star">
+                          <i class="glyphicon glyphicon-star"></i>
+                        </a>
+                      </td>
+                      <td>
+                        <div class="media">
+                          <%=link_to(image_tag product.image, :class=>"work", :size => "128x128") %>
+                          <div class="media-body">
+                            <h4 class="title">
+                              <%= product.name %>
+                              <span class="pull-right pagado">(<%= product.category_id %>)</span>
+                            </h4>
+                            <p class="summary"><%= product.description %></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                      <%= link_to "Views", admin_product_path(product),style: "width: 80px",class: "btn btn-success btn-filter" %>
+                        <a href="" type="button" class="btn btn-warning btn-filter" style="width: 80px">Edit </a>
+                        <%= link_to "Delete", admin_product_path(product), method: :delete, style: "width: 80px",class: "btn btn-danger btn-filter",
+                        data: {confirm: "Are you sure that product?"} %>
+                      </td>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            <div class="tab-pane" id="timeline">
+              <div class="row">
+                <div class="col-md-10">
+                  <div class="box box-primary">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">New Products</h3>
+                    </div>
 
+                    <%= form_for [:admin, Product.new] do |f| %>
+                    <div class="box-body">
+                      <div class="form-group">
+                        <%= f.label :name %>
+                        <%= f.text_field :name, class: "form-control" %>
                       </div>
-                    </td>
-                    <td>
-                    <a href="products/<%= product.id %>" type="button" class="btn btn-success btn-filter" style="width: 80px">Views</a>
-                  
-                    <a href="" type="button" class="btn btn-warning btn-filter" style="width: 80px">Edit </a>
-
-                    <%= link_to "Delete", admin_product_path(product), method: :delete, style: "width: 80px",class: "btn btn-danger btn-filter",
-                      data: {confirm: "Are you sure that product?"} %>
-
-
-                    <!-- <a href="" type="button" class="btn btn-danger btn-filter" style="width: 80px">Delete</a> -->
-                    </td>
+                      <div class="form-group">
+                        <%= f.label :category %>
+                        <%= f.select :category_id, options_for_select(Category.all.map{|e| [e.name, e.id]}) %>
+                      </div>
+                      <div class="form-group">
+                        <%= f.label :image %>
+                        <%= f.file_field :image %>
+                      </div>
+                      <div class="form-group">
+                        <%= f.label :price %>
+                        <%= f.text_field :price, class: "form-control" %>
+                      </div>
+                      <div class="form-group">
+                        <%= f.label :description %>
+                        <%= f.text_area :description, class: "form-control", style: "max-width: 100%" %>
+                      </div>
+                      <div class="form-group">
+                        <%= f.submit "Create", class: "btn btn-info" %>
+                      </div>            
+                    </div>
                     <% end %>
+                  </div>
 
-                  </tbody>
-                </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane" id="settings">
+              <section class="content">
+                <div class="row">
+                  <div class="col-md-10">
+                    <div class="box box-primary">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Add Images</h3>
+                      </div>
+
+                      <%= form_for [:admin, Image.new] do |f| %>
+                      <div class="box-body">
+                        <div class="form-group">
+                          <%= f.label :product %>
+                          <%= f.select :product_id, options_for_select(Product.all.map{|e| [e.name, e.id]}) %>
+                        </div>
+                        <div class="form-group">
+                          <%= f.label :link %>
+                          <%= f.file_field :link %>
+                        </div>
+                        <div class="form-group">
+                          <%= f.submit "Create", class: "btn btn-info" %>
+                        </div>            
+                      </div>
+                      <% end %>
+                    </div>
+
+                  </div>
+                </section>
+              </div>
+
+              <div class="tab-pane" id="product_datails">
+
+              </div>
+              <div class="tab-pane" id="product_codes">
+
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
+
+
+
+
     </div>
+  </section>
+

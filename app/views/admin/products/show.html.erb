@@ -1,21 +1,18 @@
  <%  provide(:title,"Show Product") %>
-
  <section class="content">
-
   <div class="row">
-    <!-- /.col -->
     <div class="col-md-12">
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#activity" data-toggle="tab">List Products</a></li>
+          <li class="active"><a href="#activity" data-toggle="tab">Products</a></li>
           <li><a href="#timeline" data-toggle="tab">New Proudcts</a></li>
           <li><a href="#settings" data-toggle="tab">Add Image</a></li>
           <li><a href="#product_datails" data-toggle="tab">Products Datails</a></li>
           <li><a href="#product_codes" data-toggle="tab">Products Codes</a></li>
+          <li><a href="#product_codes" data-toggle="tab">Products Codes</a></li>
         </ul>
         <div class="tab-content">
           <div class="active tab-pane" id="activity">
-            <!-- Post -->
             <div class="post">
               <div class="user-block">
                 <span class="username">
@@ -23,16 +20,13 @@
                   <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
                 </span>
               </div>
-              <!-- /.user-block -->
               <p>
                 <%=  @admin_product.description %>
               </p>
-              <!-- /.user-block -->
               <div class="row margin-bottom">
                 <div class="col-sm-6">
                  <%=link_to(image_tag @admin_product.image, :class=>"img-responsive") %>
                </div>
-               <!-- /.col -->
                <div class="col-sm-6">
                 <div class="row">
                   <div class="col-sm-6">
@@ -40,30 +34,17 @@
                    <br>
                    <%=link_to(image_tag @admin_product.image, :class=>"img-responsive") %>
                  </div>
-                 <!-- /.col -->
-                 <div class="col-sm-6">
-                   <%=link_to(image_tag @admin_product.image, :class=>"img-responsive") %>
-                   <br>
-                   <%=link_to(image_tag @admin_product.image, :class=>"img-responsive") %>
-                 </div>
-                 <!-- /.col -->
                </div>
-               <!-- /.row -->
              </div>
-             <!-- /.col -->
            </div>
-           <!-- /.row -->
          </div>
-         <!-- /.post -->
-       </div>
-       <!-- /.tab-pane -->
+       </div> 
        <div class="tab-pane" id="timeline">
-        <!-- The timeline -->
         <div class="row">
           <div class="col-md-10">
             <div class="box box-primary">
               <div class="box-header with-border">
-                <h3 class="box-title">Add Products</h3>
+                <h3 class="box-title">New Products</h3>
               </div>
 
               <%= form_for [:admin, Product.new] do |f| %>
@@ -98,57 +79,46 @@
           </div>
         </div>
       </div>
-      <!-- /.tab-pane -->
 
       <div class="tab-pane" id="settings">
         <section class="content">
-            <div class="row">
-              <div class="col-md-10">
-                <div class="box box-primary">
-                  <div class="box-header with-border">
-                    <h3 class="box-title">Add Images</h3>
-                  </div>
-
-                  <%= form_for [:admin, Image.new] do |f| %>
-                  <div class="box-body">
-                    <div class="form-group">
-                      <%= f.label :product %>
-                      <%= f.select :product_id, options_for_select(Product.all.map{|e| [e.name, e.id]}) %>
-                    </div>
-                    <div class="form-group">
-                      <%= f.label :link %>
-                      <%= f.file_field :link %>
-                    </div>
-                    <div class="form-group">
-                      <%= f.submit "Create", class: "btn btn-info" %>
-                    </div>            
-                  </div>
-                  <% end %>
+          <div class="row">
+            <div class="col-md-10">
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Add Images</h3>
                 </div>
 
+                <%= form_for [:admin, Image.new] do |f| %>
+                <div class="box-body">
+                  <div class="form-group">
+                    <%= f.label :product %>
+                    <%= f.select :product_id, options_for_select(Product.all.map{|e| [e.name, e.id]}) %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :link %>
+                    <%= f.file_field :link %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.submit "Create", class: "btn btn-info" %>
+                  </div>            
+                </div>
+                <% end %>
               </div>
-            </section>
+
+            </div>
+          </section>
         </div>
-        <!-- /.tab-pane -->
 
         <div class="tab-pane" id="product_datails">
 
         </div>
-        <!-- end <details -->
         <div class="tab-pane" id="product_codes">
 
         </div>
 
-
-
-
       </div>
-      <!-- /.tab-content -->
     </div>
-    <!-- /.nav-tabs-custom -->
   </div>
-  <!-- /.col -->
 </div>
-<!-- /.row -->
-
 </section>                

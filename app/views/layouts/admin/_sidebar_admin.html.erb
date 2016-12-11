@@ -25,16 +25,9 @@
   <li class="header">MAIN NAVIGATION</li>
 
   <li class="treeview">
-    <a href="#">
+     <%= link_to admin_path do %>
       <i class="fa fa-dashboard"></i> <span>Home</span>
-      <span class="pull-right-container">
-        <i class="fa fa-angle-left pull-right"></i>
-      </span>
-    </a>
-    <ul class="treeview-menu">
-      <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i>tHONG KE</a></li>
-      <li><a href="index2.html"><i class="fa fa-circle-o"></i>Order</a></li>
-    </ul>
+      <% end %>
   </li>
 
 
@@ -58,11 +51,6 @@
          <i class="fa fa-circle-o"></i> New Product
          <% end %>
        </li>
-       <li>
-        <%= link_to new_admin_image_url do %>
-        <i class="fa fa-circle-o"></i>Add Image  
-        <% end %>
-      </li>
     </ul>
   </li>
 
