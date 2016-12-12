@@ -28,11 +28,11 @@ class Admin::ProductDetailsController < Admin::BaseController
 
     respond_to do |format|
       if @admin_product_detail.save
-        format.html { redirect_to @admin_product_detail, notice: 'Product detail was successfully created.' }
-        format.json { render :show, status: :created, location: @admin_product_detail }
+        format.html { redirect_to admin_product_detail_path, notice: 'Product detail was successfully created.' }
+        format.json { render :show, status: :created, location: admin_product_detail_path }
       else
         format.html { render :new }
-        format.json { render json: @admin_product_detail.errors, status: :unprocessable_entity }
+        format.json { render json: admin_product_detail_path.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,8 +42,8 @@ class Admin::ProductDetailsController < Admin::BaseController
   def update
     respond_to do |format|
       if @admin_product_detail.update(admin_product_detail_params)
-        format.html { redirect_to @admin_product_detail, notice: 'Product detail was successfully updated.' }
-        format.json { render :show, status: :ok, location: @admin_product_detail }
+        format.html { redirect_to admin_product_details_path, notice: 'Product detail was successfully updated.' }
+        format.json { render :show, status: :ok, location: admin_product_details }
       else
         format.html { render :edit }
         format.json { render json: @admin_product_detail.errors, status: :unprocessable_entity }
@@ -69,6 +69,6 @@ class Admin::ProductDetailsController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_product_detail_params
-      params.require(:product_detail).permit(:type_product, :product_id, :code, :price, :new, :discount)
+      params.require(:product_detail).permit(:type_product,:product_id,:code,:price ,:new,:discount)
     end
 end

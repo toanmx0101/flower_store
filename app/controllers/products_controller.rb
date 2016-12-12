@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @images = @product.images
+        @admin_image = Image.where(product_id: @product.id).all
   end
 
   # GET /products/new

@@ -1,10 +1,10 @@
-class Admin::OrderDetailsController < Admin::BaseController
+class Admin::OrderDetailsController < ApplicationController
   before_action :set_admin_order_detail, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/order_details
   # GET /admin/order_details.json
   def index
-    @admin_order_details = OrderDetail.all
+    @admin_order_details = Admin::OrderDetail.all
   end
 
   # GET /admin/order_details/1
@@ -14,7 +14,7 @@ class Admin::OrderDetailsController < Admin::BaseController
 
   # GET /admin/order_details/new
   def new
-    @admin_order_detail = OrderDetail.new
+    @admin_order_detail = Admin::OrderDetail.new
   end
 
   # GET /admin/order_details/1/edit
@@ -24,7 +24,7 @@ class Admin::OrderDetailsController < Admin::BaseController
   # POST /admin/order_details
   # POST /admin/order_details.json
   def create
-    @admin_order_detail = OrderDetail.new(admin_order_detail_params)
+    @admin_order_detail = Admin::OrderDetail.new(admin_order_detail_params)
 
     respond_to do |format|
       if @admin_order_detail.save
@@ -64,7 +64,7 @@ class Admin::OrderDetailsController < Admin::BaseController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_order_detail
-      @admin_order_detail = OrderDetail.find(params[:id])
+      @admin_order_detail = Admin::OrderDetail.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

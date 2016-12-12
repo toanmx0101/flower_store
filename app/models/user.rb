@@ -1,6 +1,7 @@
-class User < ApplicationRecord
-
+class User < ActiveRecord::Base
+  mount_uploader :photo, AvatarUploader
 	attr_accessor :remember_token
+
 	before_save { self.email = email.downcase }
 	validates :name, presence: true, length: { maximum: 50 }
   	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -12,6 +13,8 @@ class User < ApplicationRecord
 
   has_many :orders
   has_many :reviews
+  
+
   # before la user.digest
   # Returns the hash digest of the given string.
   class << self
@@ -40,5 +43,6 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
 
 end

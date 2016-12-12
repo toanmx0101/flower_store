@@ -51,3 +51,4 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem "font-awesome-rails" 	
+gem 'bootbox-rails', '~>0.4'

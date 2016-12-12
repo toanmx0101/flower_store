@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 	resources :orders
-  resources :categories
+  resources :categories ,only:[:show]
   
-  resources :products
+  resources :products, only:[:show]
   # For details on the DSL available within this file, see http:guides.rubyonrails.orgrouting.html
   root "static_pages#home"
   get  'help',    to: 'static_pages#help'
@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   resources :users
   post 'user/add_review', to: 'users#add_review'
   resources :carts, only: [:show, :update]
+  
   post 'cart/add_product_to_cart'
   post 'cart/add_address'
   post 'cart/checkout_guest'

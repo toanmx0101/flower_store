@@ -1,36 +1,29 @@
 <header class="header">
   <div class="top-block">
     <div id="stuck" class="top-menu scroll-fix" style="">
-        <div class="container">
-          <nav id="top-links" class="nav">
-            <ul class="list-inline">
-              <% if logged_in? %>
-                <li><a href="/users/<%= current_user.id %>"><%= current_user.name%></a></li>
-              <% else %>
-                <li><a href="/login">My account</a></li>
-              <% end %>
-              <li><a href="" id="wishlist-total" title="My wishlist"><span>My wishlist</span></a></li>
-              <% if logged_in? %>                
-                <li><a href="checkout_step2" title="Checkout"><span>Checkout</span></a> </li>
-              <% else %>
-              <li><a href="checkout_step1" title="Checkout"><span>Checkout</span></a> </li>
-                <% end %>            
-              <% if logged_in? %>                
-                <li><a rel="nofollow" data-method="delete" href="/logout"><span>Log out</span></a> </li>  
-              <% else %>
-                <li><%= link_to "Log in", login_path %></li>
-              <% end %>
-            </ul>
-          </nav>
-          <div id="search" class="search">      
-              <div class="search-block">
-                <button type="button" class="button-search">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-                <input name="search" value="" placeholder="Search" type="text">
-              </div>
-            </div>
+      <div class="container">
+        <nav id="top-links" class="nav">
+          <ul class="list-inline">
+            <% if logged_in? %>
+            <li><a href="/users/<%= current_user.id %>"><%= image_tag current_user.photo ,size: "30x30", alt: "Edit Entry"%></a></li>
+            <li><%= link_to "My Acccount", edit_user_path(current_user) %></li>
+            <li><%= link_to "Checkout",checkout_step1_url %></li>
+            <li><a rel="nofollow" data-method="delete" href="/logout"><span>Log out</span></a> </li>  
+            <% else %>
+            <li><%= link_to "Checkout",checkout_step2_url %></li>
+            <li><%= link_to "Log in", login_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+        <div id="search" class="search">      
+          <div class="search-block">
+            <button type="button" class="button-search">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+            <input name="search" value="" placeholder="Search" type="text">
+          </div>
         </div>
+      </div>
     </div>
 
     <div id="stuck" class="top-menu" style="visibility: hidden; height: 39px;">
@@ -39,39 +32,39 @@
     <div class="container">
       <div id="logo" class="logo">    
         <a href="/">
-        <%= image_tag "logo.png", :class => "img-responsive" %>
-      </div>
-
-      <div class="box-cart">
-        <div id="cart" class="cart" >
-          <li><a href="/shoppingcart"><i class="fa fa-cart-arrow-down fa-4x" aria-hidden="true" ></i> </a></li>
+          <%= image_tag "logo.png", :class => "img-responsive" %>
         </div>
-      </div>
 
-      <div id="stuck" class="stuck-menu">
-        <div class="navigation">
-          <div class="container">
-            <div class="megamenu">
-              <ul class="sf-menu sf-js-enabled sf-arrows">
-                <li>
-                  <%= link_to "Corporate", category_path(1) %>
-                </li>
-
-                <li class="sf-with-mega">
-                  <%= link_to "Love", category_path(2), class: "sf-with-ul" %>
-                </li>
-                <li>
-                  <%= link_to "Sympathy", category_path(3) %>
-                </li>
-                <li>
-                  <%= link_to "New Baby", category_path(4) %>
-                </li>
-                <li>
-                  <%= link_to "Christmas", category_path(5) %>
-                </li>
-              </ul>
-            </div>
+        <div class="box-cart">
+          <div id="cart" class="cart" >
+            <li><a href="/shoppingcart"><i class="fa fa-cart-arrow-down fa-4x" aria-hidden="true" ></i> </a></li>
           </div>
+        </div>
+
+        <div id="stuck" class="stuck-menu">
+          <div class="navigation">
+            <div class="container">
+              <div class="megamenu">
+                <ul class="sf-menu sf-js-enabled sf-arrows">
+                  <li>
+                    <%= link_to "Corporate", category_path(1) %>
+                  </li>
+
+                  <li class="sf-with-mega">
+                    <%= link_to "Love", category_path(2), class: "sf-with-ul" %>
+                  </li>
+                  <li>
+                    <%= link_to "Sympathy", category_path(3) %>
+                  </li>
+                  <li>
+                    <%= link_to "New Baby", category_path(4) %>
+                  </li>
+                  <li>
+                    <%= link_to "Christmas", category_path(5) %>
+                  </li>
+                </ul>
+              </div>
+            </div>
             <script>
               ;(function ($) {
                 $(window).load(function () {

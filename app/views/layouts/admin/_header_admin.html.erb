@@ -5,7 +5,7 @@
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>A</b>LT</span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>Admin</b>LTE</span>
+    <span class="logo-lg"><b>Admin</b></span>
   </a>
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top">
@@ -216,13 +216,13 @@
   <!-- User Account: style can be found in dropdown.less -->
   <li class="dropdown user user-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-     <%= image_tag("user2-160x160.jpg", class: "user-image") %>
+     <%= image_tag(@current_user.photo, class: "user-image") %>
      <span class="hidden-xs"><%= @current_user.name %></span>
    </a>
    <ul class="dropdown-menu">
     <!-- User image -->
     <li class="user-header">
-     <%= image_tag("user2-160x160.jpg", class: "img-circle") %>
+     <%= image_tag(@current_user.photo, class: "img-circle") %>
 
      <p>
       <%= @current_user.name %>
@@ -233,7 +233,7 @@
   <li class="user-body">
     <div class="row">
       <div class="col-xs-4 text-center">
-        <a href="#">Followers</a>
+         <%= link_to "Edit", edit_user_path(current_user) %>
       </div>
       <div class="col-xs-4 text-center">
         <a href="#">Sales</a>
@@ -256,9 +256,6 @@
 </ul>
 </li>
 <!-- Control Sidebar Toggle Button -->
-<li>
-  <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-</li>
 </ul>
 </div>
 </nav>

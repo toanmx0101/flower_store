@@ -1,31 +1,26 @@
 class Admin::ProductsController < Admin::BaseController
   before_action :set_admin_product, only: [:show, :edit, :update, :destroy]
-
   # GET /admin/products
   # GET /admin/products.json
   def index
     @admin_products = Product.all
   end
-
   # GET /admin/products/1
   # GET /admin/products/1.json
   def show
+    @admin_image = Image.where(product_id: @admin_product.id).all
   end
-
   # GET /admin/products/new
   def new
     @admin_product = Product.new
   end
-
   # GET /admin/products/1/edit
   def edit
   end
-
   # POST /admin/products
   # POST /admin/products.json
   def create
     @admin_product = Product.new(admin_product_params)
-
     respond_to do |format|
       if @admin_product.save
         format.html { redirect_to admin_products_url, notice: 'Product was successfully created.' }
@@ -42,11 +37,11 @@ class Admin::ProductsController < Admin::BaseController
   def update
     respond_to do |format|
       if @admin_product.update(admin_product_params)
-        format.html { redirect_to @admin_product, notice: 'Product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @admin_product }
+        format.html { redirect_to admin_products_path, notice: 'Product was successfully updated.' }
+        format.json { render :show, status: :ok, location: admin_products_path }
       else
         format.html { render :edit }
-        format.json { render json: @admin_product.errors, status: :unprocessable_entity }
+        format.json { render json: admin_products_url, status: :unprocessable_entity }
       end
     end
   end

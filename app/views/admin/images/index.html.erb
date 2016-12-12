@@ -1,29 +1,27 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Admin Images</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Link</th>
-      <th>Product</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @admin_images.each do |admin_image| %>
-      <tr>
-        <td><%= admin_image.link %></td>
-        <td><%= admin_image.product_id %></td>
-        <td><%= link_to 'Show', admin_image %></td>
-        <td><%= link_to 'Edit', edit_admin_image_path(admin_image) %></td>
-        <td><%= link_to 'Destroy', admin_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
 <%= link_to 'New Admin Image', new_admin_image_path %>
+<%  provide(:title,"Show Product") %>
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="tab-content">
+        <% @admin_images.each do |admin_image| %>
+        <div class="item  col-xs-3 col-lg-3">
+          <div class="thumbnail">
+            <%=link_to(image_tag admin_image.link, :class=>"work", :size => "300x300") %>
+            <div class="caption">
+              <h4 class="group inner list-group-item-heading">
+                <%= admin_image.product_id %></h4>
+                <p class="group inner list-group-item-text">
+                  <%= link_to 'Edit |', edit_admin_image_path(admin_image) %>
+                  <%= link_to 'Delete', admin_image_path(admin_image), method: :delete,data: {confirm: "Are you sure?"} %>
+                </p>
+              </p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div> 
+    </div>
+  </div>
+</section>                
