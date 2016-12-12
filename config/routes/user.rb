@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 	resources :orders
-  resources :categories
+  resources :categories ,only:[:show]
   
-  resources :products
+  resources :products, only:[:show]
   # For details on the DSL available within this file, see http:guides.rubyonrails.orgrouting.html
   root "static_pages#home"
   get  'help',    to: 'static_pages#help'

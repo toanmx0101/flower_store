@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20161123061440) do
     t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["product_id", "created_at"], name: "index_images_on_product_id_and_created_at"
+    t.index ["product_id"], name: "index_images_on_product_id"
   end
 
   create_table "order_details", force: :cascade do |t|

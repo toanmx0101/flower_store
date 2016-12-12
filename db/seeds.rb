@@ -68,28 +68,20 @@ end
 puts "Finish"
 
 puts "Faker 50 Images"
-Image.create(:link => 'http://localhost:3000/assets/product-1-800x800.png',product_id: 1);
-Image.create(:link =>  "http://localhost:3000/assets/product-2-800x800.png",product_id: 2);
-Image.create(:link =>  "http://localhost:3000/assets/product-3-800x800.png",product_id: 3);
-Image.create(:link => "http://localhost:3000/assets/product-4-800x800.png",product_id: 4);
-Image.create(:link => "http://localhost:3000/assets/product-5-800x800.png",product_id: 5);
-Image.create(:link => "http://localhost:3000/assets/product-6-800x800.png",product_id: 6);
-Image.create(:link => "http://localhost:3000/assets/product-7-800x800.png",product_id: 7);
-Image.create(:link => "http://localhost:3000/assets/product-8-800x800.png",product_id: 8);
-Image.create(:link => "http://localhost:3000/assets/product-9-800x800.png",product_id: 9);
-Image.create(:link => "http://localhost:3000/assets/product-10-800x800.png",product_id: 10);
-Image.create(:link => "http://localhost:3000/assets/product-11-800x800.png",product_id: 11);
-Image.create(:link => "http://localhost:3000/assets/product-12-800x800.png",product_id: 12);
 
-puts "Finish"
+# products = Product.order(:created_at).take(6)
+# 50.times do
+#   link = Faker::Avatar.image("my-own-slug", "50x50", "jpg")
+#   products.each { |product| product.images.create!(link: link) }
+# end
+# puts "Finish"
 
 # puts "Create 3 Product Details"
 
-# ProductDetail.create(:type_product=> "Nomal",:product_id => '1', :code => 'FL01N',:price =>'12.00',:new => 'true',:discount => '10');
-# ProductDetail.create(:type_product=> "Small",:product_id => '1', :code => 'FL01S',:price =>'10.00',:new => 'true',:discount => '10');
-# ProductDetail.create(:type_product=> "Large",:product_id => '1', :code => 'FL01L',:price =>'15.00',:new => 'true',:discount => '10');
-
-# ProductDetail.create(:type_product=> "Nomal",:product_id => '2', :code => 'FL02N',:price =>'12.00',:new => 'true',:discount => '10');
-# ProductDetail.create(:type_product=> "Small",:product_id => '2', :code => 'FL02S',:price =>'10.00',:new => 'true',:discount => '10');
-# ProductDetail.create(:type_product=> "Large",:product_id => '2', :code => 'FL02L',:price =>'15.00',:new => 'true',:discount => '10');
+ProductDetail.create(:type_product=> "Nomal",:product_id => '1', :code => 'FL01N',:price =>'12.00',:new => 'true',:discount => '10');
+ProductDetail.create(:type_product=> "Small",:product_id => '1', :code => 'FL01S',:price =>'10.00',:new => 'true',:discount => '10');
+ProductDetail.create(:type_product=> "Large",:product_id => '1', :code => 'FL01L',:price =>'15.00',:new => 'true',:discount => '10');
+ProductDetail.create(:type_product=> "Nomal",:product_id => '2', :code => 'FL02N',:price =>'12.00',:new => 'true',:discount => '10');
+ProductDetail.create(:type_product=> "Small",:product_id => '2', :code => 'FL02S',:price =>'10.00',:new => 'true',:discount => '10');
+ProductDetail.create(:type_product=> "Large",:product_id => '2', :code => 'FL02L',:price =>'15.00',:new => 'true',:discount => '10');
 # puts "Finish"

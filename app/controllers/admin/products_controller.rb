@@ -8,6 +8,7 @@ class Admin::ProductsController < Admin::BaseController
   # GET /admin/products/1
   # GET /admin/products/1.json
   def show
+    @admin_image = Image.where(product_id: @admin_product.id).all
   end
   # GET /admin/products/new
   def new
