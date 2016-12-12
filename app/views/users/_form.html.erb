@@ -1,22 +1,73 @@
-<%= form_for(@user) do |f| %>
-  <%= render 'shared/error_messages', object: @user %>
+<div class="row"> 
+      <div id="content" class="col-sm-9"> 
+        <%= form_for((@user), :html => {:class => 'form-horizontal'}) do |f| %>
+        <%= render 'shared/error_messages', object: @user %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name, class: 'form-control' %>
+        <fieldset id="account">
+          <legend>Your Personal Details</legend>
 
-  <%= f.label :email %>
-  <%= f.email_field :email, class: 'form-control' %>
+          <div class="form-group required">
+            <%= f.label :name ,class: 'col-sm-3 control-label',class: 'col-sm-3 control-label' %>
+            <div class="col-sm-9">
+              <%= f.text_field :name, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group required">
+            <%= f.label :email ,class: 'col-sm-3 control-label' %>
+            <div class="col-sm-9">
+              <%= f.email_field :email, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group required">
+            <%= f.label :phone ,class: 'col-sm-3 control-label' %>
+            <div class="col-sm-9">
+              <%= f.text_field :phone, class: 'form-control' %>
+            </div>
+          </div>
+        </fieldset>
 
-  <%= f.label :password %>
-  <%= f.password_field :password, class: 'form-control',:required => true %>
+        <fieldset id="address">
+          <legend>Your Address</legend>
+          <div class="form-group required">
+            <%= f.label :address ,class: 'col-sm-3 control-label' %>
+            <div class="col-sm-9">
+              <%= f.text_field :address, class: 'form-control' %>
+            </div>
+          </div>
+        </fieldset>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, class: 'form-control', :required => true %>
+        <fieldset>
+          <legend>Your Password</legend>
+          <div class="form-group required">
+            <%= f.label :password ,class: 'col-sm-3 control-label' %>
+            <div class="col-sm-9">
+              <%= f.password_field :password, class: 'form-control',:required => true %>
+            </div>
+          </div>
+          <div class="form-group required">
+            <%= f.label :password_confirmation ,class: 'col-sm-3 control-label' %>
+            <div class="col-sm-9">
+              <%= f.password_field :password_confirmation, class: 'form-control', :required => true %>
+            </div>
+          </div>
+        </fieldset>
 
-  <%= f.label :image %>
-  <%= f.file_field :avatar, multiple: true %>
+        <fieldset>
+          <legend>Avatar</legend>
+          <div class="form-group required">
+            <%= f.label :photo ,class: 'col-sm-3 control-label' %>
 
+            <div class="col-sm-9">
+              <%= f.file_field :photo %>
+            </div>
+          </div>
+        </fieldset>
 
+        <div class="buttons">
+          <%= f.submit yield(:button_text), class: "btn btn-primary", value: 'Continue' %>
+          <% end %>
+        </div>
 
-  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
-<% end %>
+      </div>
+      <%= render 'users/right_sidenav'%>
+    </div>

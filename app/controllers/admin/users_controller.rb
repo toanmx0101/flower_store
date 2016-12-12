@@ -19,6 +19,7 @@ class Admin::UsersController < Admin::BaseController
 
   # GET /admin/users/1/edit
   def edit
+    @user = User.find(params[:id])
   end
 
   # POST /admin/users
@@ -28,8 +29,8 @@ class Admin::UsersController < Admin::BaseController
 
     respond_to do |format|
       if @admin_user.save
-        format.html { redirect_to @admin_user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @admin_user }
+        format.html { redirect_to admin_users_path, notice: 'User was successfully created.' }
+        format.json { render :show, status: :created, location: admin_users_path }
       else
         format.html { render :new }
         format.json { render json: @admin_user.errors, status: :unprocessable_entity }

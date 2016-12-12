@@ -51,10 +51,10 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    @user = User.finds(params[:id])  
+    @user = User.find(params[:id])  
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
-      redirect_to @user
+      redirect_to admin_users_path
     else
       render 'edit'
     end
