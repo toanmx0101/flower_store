@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20161123061440) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "productdetails", force: :cascade do |t|
+  create_table "product_details", force: :cascade do |t|
     t.string   "type_product"
     t.integer  "product_id"
     t.string   "code"

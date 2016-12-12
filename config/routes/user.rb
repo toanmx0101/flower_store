@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   resources :users
   post 'user/add_review', to: 'users#add_review'
   resources :carts, only: [:show, :update]
+  
   post 'cart/add_product_to_cart'
   post 'cart/add_address'
   post 'cart/checkout_guest'

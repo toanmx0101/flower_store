@@ -37,7 +37,7 @@
             <td><%= admin_product_detail.price %></td>
             <td><%= admin_product_detail.new %></td>
             <td><%= admin_product_detail.discount %></td>
-            <td><%= link_to 'Show', admin_product_details_url %></td>
+            <td><%= link_to 'Show', admin_product_detail_path(admin_product_detail) %></td>
             <td><%= link_to 'Edit', edit_admin_product_detail_path(admin_product_detail) %></td>
             <td><%= link_to 'Destroy', admin_product_detail_path(admin_product_detail), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>

@@ -69,6 +69,6 @@ class Admin::OrdersController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_order_params
-      params.require(:admin_order).permit(:user_id, :address, :requirement, :phonenumber, :status)
+      params.require(:order).permit(:user_id, :address, :requirement, :phonenumber, :status)
     end
 end
