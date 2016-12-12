@@ -32,7 +32,7 @@ class Admin::ImagesController < Admin::BaseController
         format.json { render :show, status: :created, location: @admin_image }
       else
         format.html { render :new }
-        format.json { render json: @admin_image.errors, status: :unprocessable_entity }
+        format.json { render json: admin_image_url, status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +42,11 @@ class Admin::ImagesController < Admin::BaseController
   def update
     respond_to do |format|
       if @admin_image.update(admin_image_params)
-        format.html { redirect_to @admin_image, notice: 'Image was successfully updated.' }
+        format.html { redirect_to admin_image_url , notice: 'Image was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_image }
       else
         format.html { render :edit }
-        format.json { render json: @admin_image.errors, status: :unprocessable_entity }
+        format.json { render json: admin_image_url, status: :unprocessable_entity }
       end
     end
   end

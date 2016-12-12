@@ -1,6 +1,40 @@
-<h1>Editing Admin Image</h1>
+<%  provide(:title,"Edit Image") %>
+<h1>Edit Image</h1>
+<section class="content">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="box box-primary">
+				<div class="box-header with-border">
+				</div>
+				<%= form_for [:admin, @admin_image] do |f| %>
+				<% if @admin_image.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(admin_image.errors.count, "error") %> prohibited this admin_image from being saved:</h2>
 
-<%= render 'form', admin_image: @admin_image %>
-
-<%= link_to 'Show', @admin_image %> |
-<%= link_to 'Back', admin_images_path %>
+					<ul>
+						<% admin_image.errors.full_messages.each do |message| %>
+						<li><%= message %></li>
+						<% end %>
+					</ul>
+				</div>
+				<% end %>
+				<div class="box-body">
+					<div class="form-group">
+						<%= f.label :link , class: "form-control"  %>
+						<%= f.file_field :link, class: "form-control"  %>
+					</div>
+					
+					<div class="form-group">
+						<%= f.label :product_id %>
+						<%= f.text_field :product_id, class: "form-control" %>
+					</div>
+					<div class="form-group">
+						<%= f.submit "Update", class: "btn btn-danger" %>
+					</div>            
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</section>
+	<%= link_to 'Show', @admin_image %> |
+	<%= link_to 'Back', admin_images_path %>

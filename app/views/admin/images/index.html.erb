@@ -14,13 +14,14 @@
                 <%= admin_image.product_id %></h4>
                 <p class="group inner list-group-item-text">
                   <%= link_to 'Edit |', edit_admin_image_path(admin_image) %>
-                 <%= link_to 'Destroy', admin_image, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-                  </p>
-                 </div>
-               </div>
-             </div>
-             <% end %>
-           </div> 
-         </div>
-       </div>
-     </section>                
+                  <%= link_to 'Delete', admin_image_path(admin_image), method: :delete,data: {confirm: "Are you sure?"} %>
+                </p>
+              </p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div> 
+    </div>
+  </div>
+</section>                

@@ -18,6 +18,8 @@
         <td><%= admin_store.quantity %></td>
         <td><%= link_to 'Show', admin_store %></td>
         <td><%= link_to 'Edit', edit_admin_store_path(admin_store) %></td>
+
+          <%= link_to "Delete", admin_product_path(product), method: :delete,data: {confirm: "Are you sure?"} %>
         <td><%= link_to 'Destroy', admin_store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

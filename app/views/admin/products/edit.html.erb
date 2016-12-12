@@ -7,7 +7,7 @@
 			<div class="box box-primary">
 				<div class="box-header with-border">
 				</div>
-				<%= form_for(@admin_product) do |f| %>
+				<%= form_for [:admin, @admin_product] do |f| %>
 				<% if @admin_product.errors.any? %>
 				<div id="error_explanation">
 					<h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
