@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'New Admin Image', new_admin_image_path %>
+<%  provide(:title,"Show Product") %>
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="tab-content">
+        <% @admin_images.each do |admin_image| %>
+        <div class="item  col-xs-4 col-lg-4">
+          <div class="thumbnail">
+            <%=link_to(image_tag admin_image.link, :class=>"work", :size => "100x100") %>
+            <div class="caption">
+              <h4 class="group inner list-group-item-heading">
+                <%= admin_image.product_id %></h4>
+                <p class="group inner list-group-item-text">
+                  <%= link_to 'Edit |', edit_admin_image_path(admin_image) %>
+                 <%= link_to 'Destroy', admin_image, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+                  </p>
+                 </div>
+               </div>
+             </div>
+             <% end %>
+           </div> 
+         </div>
+       </div>
+     </section>                
