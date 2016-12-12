@@ -36,14 +36,15 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user
-    else
-      flash.now[:danger] =  'Invalid email/password combination'
-      render 'new'
+        log_in @user
+        flash[:success] = "Welcome to the Sample App!"
+        redirect_to @user
+      else
+        flash.now[:danger] =  'Invalid email/password combination'
+        render 'new'
     end
   end
 
@@ -75,7 +76,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :phone,:address,:avatar,:password,:password_confirmation)
+      params.require(:user).permit(:name, :email, :phone,:address,:photo,:password,:password_confirmation)
     end
 
     def logged_in_user
@@ -91,7 +92,7 @@ class UsersController < ApplicationController
       redirect_to(root_url) unless current_user?(@user)
     end
 
-     def admin_user
+    def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
 
@@ -103,6 +104,6 @@ class UsersController < ApplicationController
     end
 
     def add_user_comment
-      
+
     end
-end
+  end
