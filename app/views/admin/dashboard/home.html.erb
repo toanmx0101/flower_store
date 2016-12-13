@@ -415,9 +415,13 @@
              <% @user.each do |user| %>
 
              <li>
+             <% if user.photo? %>
                <%=link_to(image_tag user.photo, :class=>"work", :size => "128x128") %>
                <%=link_to(user.name, :class=>"users-list-name") %>
-
+               <% else %>
+               <%= image_tag("default.jpg",:size => "128x128") %>
+                <%=link_to(user.name, :class=>"users-list-name") %>
+                <% end %>
                <span class="users-list-date"><%= user.created_at.strftime("%Y-%m-%d") %></span>
              </li>
              <% end %>

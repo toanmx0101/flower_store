@@ -48,46 +48,51 @@
     <!-- /.box -->
   </div>
 </div>
-  
+
 <div class="row">
   <div class="col-md-3">
-  <!-- USERS LIST -->
-  <div class="box box-danger">
-    <div class="box-header with-border">
-      <h3 class="box-title">Mem On Week</h3>
+    <!-- USERS LIST -->
+    <div class="box box-danger">
+      <div class="box-header with-border">
+        <h3 class="box-title">Mem On Week</h3>
 
-      <div class="box-tools pull-right">
-        <span class="label label-danger"><%= @number_user_on_week %> New Members</span>
-        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-        </button>
-        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-        </button>
+        <div class="box-tools pull-right">
+          <span class="label label-danger"><%= @number_user_on_week %> New Members</span>
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+          </button>
+        </div>
       </div>
+      <!-- /.box-header -->
+      <div class="box-body no-padding">
+        <ul class="users-list clearfix">
+
+         <% @user.each do |user| %>
+
+         <li>
+           <% if user.photo? %>
+           <%=link_to(image_tag user.photo, :class=>"work", :size => "128x128") %>
+           <%=link_to(user.name, :class=>"users-list-name") %>
+           <% else %>
+           <%= image_tag("default.jpg",:size => "128x128") %>
+           <%=link_to(user.name, :class=>"users-list-name") %>
+           <% end %>
+           <span class="users-list-date"><%= user.created_at.strftime("%Y-%m-%d") %></span>
+         </li>
+         <% end %>
+         
+
+       </ul>
+       <!-- /.users-list -->
+     </div>
+     <!-- /.box-body -->
+     <div class="box-footer text-center">
+      <%= link_to('View All Users', admin_users_path,:class=>"uppercase" ) %>
     </div>
-    <!-- /.box-header -->
-    <div class="box-body no-padding">
-      <ul class="users-list clearfix">
-
-       <% @user.each do |user| %>
-
-       <li>
-         <%=link_to(image_tag user.photo, :class=>"work", :size => "128x128") %>
-         <%=link_to(user.name, :class=>"users-list-name") %>
-
-         <span class="users-list-date"><%= user.created_at.strftime("%Y-%m-%d") %></span>
-       </li>
-       <% end %>
-
-     </ul>
-     <!-- /.users-list -->
-   </div>
-   <!-- /.box-body -->
-   <div class="box-footer text-center">
-    <%= link_to('View All Users', admin_users_path,:class=>"uppercase" ) %>
+    <!-- /.box-footer -->
   </div>
-  <!-- /.box-footer -->
+  <!--/.box -->
 </div>
-<!--/.box -->
-</div>
-    <!-- /.col -->
+<!-- /.col -->
 </div>
