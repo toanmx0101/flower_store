@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
         log_in @user
-        flash[:success] = "Welcome to the Sample App!"
+        flash[:success] = "Welcome to the Flower Store!"
         redirect_to @user
       else
         flash.now[:danger] =  'Invalid email/password combination'

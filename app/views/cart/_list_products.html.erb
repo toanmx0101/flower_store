@@ -15,12 +15,10 @@
 			<tbody>
 			<!-- begin each session[:current_cart] -->
 				<% @total = 0 %>
-				<% binding.pry%>	
 				<% unless (session[:current_cart].nil?) %>
 					<% session[:current_cart].each do |key ,value| %>	
 						<% product_detail 	= ProductDetail.find(key) %>
 						<% product = Product.find(product_detail.product_id) %>	
-
 						<tr>
 							<td class="text-center vcenter"> 
 								<div class="image">
