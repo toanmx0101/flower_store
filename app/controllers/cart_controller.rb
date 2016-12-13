@@ -5,10 +5,7 @@ class CartController < ApplicationController
 	end
 
 	def index
-		unless (session[:current_cart].nil?)
-			session[:current_cart].each do |key, value|			
-			end
-		end
+		
 	end	
 
 
@@ -56,12 +53,15 @@ class CartController < ApplicationController
 
 	private
 		def add_product 		
+			if (session[:current_cart][0] == 1)
+				session[:current_cart].clear
+			end
+			binding.pry
 			pr_id = params[:session][:product_id]
 			type_product = params[:session][:type_product]
 			quantity = params[:session][:quantity]
 			product_detail = ProductDetail.where(product_id: pr_id,type_product: type_product).pluck(:id);
 			id = product_detail[0];
-			
 			if !(session[:current_cart].nil?)
 				if (session[:current_cart].key?(id.to_s))
 					session[:current_cart][id.to_s] = session[:current_cart][id.to_s] + quantity.to_i 

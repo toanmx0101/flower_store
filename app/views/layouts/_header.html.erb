@@ -5,13 +5,14 @@
         <nav id="top-links" class="nav">
           <ul class="list-inline">
             <% if logged_in? %>
-            <li><a href="/users/<%= current_user.id %>"><%= image_tag current_user.photo ,size: "30x30", alt: "Edit Entry"%></a></li>
-            <li><%= link_to "My Acccount", edit_user_path(current_user) %></li>
-            <li><%= link_to "Checkout",checkout_step1_url %></li>
-            <li><a rel="nofollow" data-method="delete" href="/logout"><span>Log out</span></a> </li>  
+              <li><a href="/users/<%= current_user.id %>"><%= image_tag current_user.photo ,size: "30x30", alt: "Edit Entry"%></a></li>
+              <li><%= link_to "My Acccount", edit_user_path(current_user) %></li>
+              <li><%= link_to "Checkout",checkout_step1_url %></li>
+              <li><a rel="nofollow" data-method="delete" href="/logout"><span>Log out</span></a> </li>  
             <% else %>
-            <li><%= link_to "Checkout",checkout_step2_url %></li>
-            <li><%= link_to "Log in", login_path %></li>
+              <li><%= link_to "Log in", login_path %></li>
+              <li><a  href="/signup"><span>Register</span></a></li>
+              <li><%= link_to "Checkout",checkout_step2_url %></li>
             <% end %>
           </ul>
         </nav>
@@ -37,7 +38,7 @@
 
         <div class="box-cart">
           <div id="cart" class="cart" >
-            <li><a href="/shoppingcart"><i class="fa fa-cart-arrow-down fa-4x" aria-hidden="true" ></i> </a></li>
+            <li style="margin-top: 24px; list-style: none" ><a href="/shoppingcart"><i class="fa fa-cart-arrow-down fa-4x" aria-hidden="true" ></i> </a></li>
           </div>
         </div>
 
