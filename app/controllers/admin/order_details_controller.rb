@@ -1,10 +1,10 @@
-class Admin::OrderDetailsController < ApplicationController
+class Admin::OrderDetailsController < Admin::BaseController
   before_action :set_admin_order_detail, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/order_details
   # GET /admin/order_details.json
   def index
-    @admin_order_details = Admin::OrderDetail.all
+    @admin_order_details = OrderDetail.all
   end
 
   # GET /admin/order_details/1
@@ -14,7 +14,7 @@ class Admin::OrderDetailsController < ApplicationController
 
   # GET /admin/order_details/new
   def new
-    @admin_order_detail = Admin::OrderDetail.new
+    @admin_order_detail = OrderDetail.new
   end
 
   # GET /admin/order_details/1/edit
@@ -24,12 +24,12 @@ class Admin::OrderDetailsController < ApplicationController
   # POST /admin/order_details
   # POST /admin/order_details.json
   def create
-    @admin_order_detail = Admin::OrderDetail.new(admin_order_detail_params)
+    @admin_order_detail = OrderDetail.new(admin_order_detail_params)
 
     respond_to do |format|
       if @admin_order_detail.save
-        format.html { redirect_to @admin_order_detail, notice: 'Order detail was successfully created.' }
-        format.json { render :show, status: :created, location: @admin_order_detail }
+        format.html { redirect_to admin_order_details_path, notice: 'Order detail was successfully created.' }
+        format.json { render :show, status: :created, location: admin_order_details_path }
       else
         format.html { render :new }
         format.json { render json: @admin_order_detail.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class Admin::OrderDetailsController < ApplicationController
   def update
     respond_to do |format|
       if @admin_order_detail.update(admin_order_detail_params)
-        format.html { redirect_to @admin_order_detail, notice: 'Order detail was successfully updated.' }
-        format.json { render :show, status: :ok, location: @admin_order_detail }
+        format.html { redirect_to admin_order_details_path, notice: 'Order detail was successfully updated.' }
+        format.json { render :show, status: :ok, location: admin_order_details_path }
       else
         format.html { render :edit }
         format.json { render json: @admin_order_detail.errors, status: :unprocessable_entity }
@@ -64,11 +64,11 @@ class Admin::OrderDetailsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_order_detail
-      @admin_order_detail = Admin::OrderDetail.find(params[:id])
+      @admin_order_detail = OrderDetail.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_order_detail_params
-      params.require(:admin_order_detail).permit(:order_id, :product_details_id, :quantity, :price)
+      params.require(:order_detail).permit(:order_id, :product_details_id, :quantity, :price)
     end
 end

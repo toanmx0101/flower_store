@@ -13,6 +13,7 @@ class CartController < ApplicationController
 		if logged_in?
 				redirect_to	(checkout_step2_path)
 		end
+		
 	end
 
 	def add_address

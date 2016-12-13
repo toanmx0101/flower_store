@@ -1,8 +1,7 @@
-<%  provide(:title,"Order details ") %>
-
-<h1>Admin Order Details</h1>
+<%  provide(:title,"Bills") %>
+<h1>Admin Bills</h1>
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-xs-6">
     <div class="box">
       <div class="box-header">
         <h3 class="box-title">Responsive Hover Table</h3>
@@ -19,26 +18,26 @@
       </div>
       <div class="box-body table-responsive no-padding">
         <table class="table table-hover">
-         <thead>
-          <tr>
-            <th>Order</th>
+          <thead>
+           <tr>
+            <th>Input price</th>
+            <th>Selling price</th>
             <th>Product details</th>
             <th>Quantity</th>
-            <th>Price</th>
             <th colspan="3"></th>
           </tr>
         </thead>
 
         <tbody>
-          <% @admin_order_details.each do |admin_order_detail| %>
+          <% @admin_bills.each do |admin_bill| %>
           <tr>
-            <td><%= admin_order_detail.order_id %></td>
-            <td><%= admin_order_detail.product_detail_id %></td>
-            <td><%= admin_order_detail.quantity %></td>
-            <td><%= admin_order_detail.price %></td>
-            <td><%= link_to 'Show', admin_order_detail_path(admin_order_detail) %></td>
-            <td><%= link_to 'Edit', edit_admin_order_detail_path(admin_order_detail) %></td>
-            <td><%= link_to 'Destroy', admin_order_detail_path(admin_order_detail), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= admin_bill.input_price %></td>
+            <td><%= admin_bill.selling_price %></td>
+            <td><%= admin_bill.product_details_id %></td>
+            <td><%= admin_bill.quantity %></td>
+            <td><%= link_to 'Show', admin_bills_path %></td>
+            <td><%= link_to 'Edit', edit_admin_bill_path(admin_bill) %></td>
+            <td><%= link_to 'Destroy', admin_bill_path(admin_bill), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
           <% end %>
         </tbody>
@@ -48,6 +47,5 @@
   </div>
 </div>
 </div>
-<br>
-<%= link_to 'New Admin Order Detail', new_admin_order_detail_path %>
-<%  provide(:title,"Orders details" ) %>
+
+<%= link_to 'New Admin Bill', new_admin_bill_path %>

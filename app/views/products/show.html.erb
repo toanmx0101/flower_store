@@ -11,8 +11,8 @@
 					<div id="default_g	allery" class="product-gallery">
 						<div class="image-thumb">
 							<div class="bx-wrapper" style="max-width: 99px; margin: 0px auto;">
-								<div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 537px;">
-									<ul id="image-additional" class="image-additional" style="width: auto; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+								<div class="bx-viewport">
+									<ul id="image-additional" class="image-additional">
 										<li style="float: none; list-style: outside none none; position: relative; width: 97px; margin-bottom: 13px;">
 												<% @admin_image.each do |image| %>
 							                        <%= link_to(image_tag image.link) %>
@@ -28,14 +28,7 @@
 								<div class="magnificent magnificent-mode-inner" data-magnificent="product-image">
 									<div class="polaroid">
 										<div class="inner" style="position: relative;">
-												<img src="<%= @product.image %>" alt="">
-											<div class="magnificent-area" style="position: absolute; z-index: 100; top: 0px; left: 0px; background: white none repeat scroll 0% 0%; opacity: 0; height: 528px; width: 528px;">											
-											</div>
-											<div data-magnificent-viewport="product-image" class="magnificent-viewport magnificent-viewport-mode-inner" style="display: none; position: absolute; z-index: 98; overflow: hidden; height: 528px; width: 528px; left: 0px; top: 0px;">
-											<div class="inner" style="position: relative; width: 1584px; top: -96.6766px; left: -473.613px;">
-												<img src="<%= @product.image %>">
-											</div>
-											</div>
+													<%= link_to (image_tag @product.image) %>								
 										</div>
 									</div>
 								</div>

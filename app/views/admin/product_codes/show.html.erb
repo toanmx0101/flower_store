@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Store:</strong>
+  <%= @admin_product_code.store_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @admin_product_code.status %>
+</p>
+
+<%= link_to 'Edit', edit_admin_product_code_path(@admin_product_code) %> |
+<%= link_to 'Back', admin_product_codes_path %>

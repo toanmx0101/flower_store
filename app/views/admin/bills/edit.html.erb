@@ -1,14 +1,14 @@
-<%  provide(:title,"Edit Order") %>
+<%  provide(:title,"Edit Bills") %>
 
-<h1>Order confirmation</h1>
+<h1>Bill</h1>
 <section class="content">
 	<div class="row">
 		<div class="col-md-6">
 			<div class="box box-primary">
 				<div class="box-header with-border">
 				</div>
-				<%= form_for [:admin, @admin_order] do |f| %>
-				<% if @admin_order.errors.any? %>
+				<%= form_for [:admin, @admin_bill] do |f| %>
+				<% if @admin_bill.errors.any? %>
 				<div id="error_explanation">
 					<h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
@@ -21,8 +21,12 @@
 				<% end %>
 				<div class="box-body">
 					<div class="form-group">
-						<%= f.label :user_id , class: "form-control" %>
-						<%= f.select :user_id, options_for_select(User.all.map{|e| [e.name, e.id]}) %>
+						<%= f.label :input_price %>
+						<%= f.number_field :input_price, class: "form-control" %>
+					</div>
+					<div class="form-group">
+						<%= f.label :product_details_id , class: "form-control" %>
+						<%= f.select :product_details_id, options_for_select(ProductDetail.all.map{|e| [e.code, e.id]}) %>
 					</div>
 
 					<div class="form-group">
@@ -35,8 +39,8 @@
 					</div>
 
 					<div class="form-group">
-						<%= f.label :phonenumber %>
-						<%= f.number_field :phonenumber, class: "form-control" %>
+						<%= f.label :quantity %>
+						<%= f.number_field :quantity, class: "form-control" %>
 					</div>
 
 
