@@ -7,9 +7,10 @@ Rails.application.routes.draw do
     resources :users
     resources :images
     resources :orders
-    resources :orders_details
+    resources :order_details
     resources :sessions
     resources :comments
+    resources :bills
 
     get '', to: 'dashboard#home', as: '/' 
 

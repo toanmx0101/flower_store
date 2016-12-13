@@ -1,0 +1,1 @@
+json.partial! "admin_product_codes/admin_product_code", admin_product_code: @admin_product_code

@@ -1,12 +1,12 @@
-<h1>New Admin Order</h1>
 <%  provide(:title,"New Order") %>
-<h1>Add New Product</h1>
+
+<h1>New Admin Order</h1>
 <section class="content">
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-6">
 			<div class="box box-primary">
 				<div class="box-header with-border">
-					<h3 class="box-title">Add Products</h3>
+					<h3 class="box-title">Add Order</h3>
 				</div>
 				<%= form_for [:admin, Order.new] do |f| %>
 				<div class="box-body">
@@ -32,8 +32,10 @@
 
 					<div class="field">
 						<%= f.label :status %>
-						<%= f.check_box :status , class: "form-control" %>
+						<%= f.check_box :status %>
+
 					</div>
+					<br>
 					<div class="form-group">
 						<%= f.submit "Create", class: "btn btn-info" %>
 					</div>            

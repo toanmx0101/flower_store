@@ -1,0 +1,1 @@
+json.array! @admin_product_codes, partial: 'admin_product_codes/admin_product_code', as: :admin_product_code

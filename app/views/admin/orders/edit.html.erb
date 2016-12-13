@@ -1,6 +1,6 @@
-<%  provide(:title,"Edit Product") %>
+<%  provide(:title,"Edit Order") %>
 
-<h1>Edit Products</h1>
+<h1>Order confirmation</h1>
 <section class="content">
 	<div class="row">
 		<div class="col-md-6">
@@ -41,9 +41,10 @@
 
 
 					<div class="field">
-						<%= f.label :status %>
-						<%= f.check_box :status , class: "form-control" %>
+						<%= f.label :Check %>
+						<%= f.check_box :status %>
 					</div>
+					<br>
 					<div class="form-group">
 						<%= f.submit "Create", class: "btn btn-info" %>
 					</div>              
