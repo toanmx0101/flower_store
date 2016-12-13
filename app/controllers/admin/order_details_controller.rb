@@ -10,6 +10,7 @@ class Admin::OrderDetailsController < Admin::BaseController
   # GET /admin/order_details/1
   # GET /admin/order_details/1.json
   def show
+    @admin_order_details = Order.find(params[:id])
   end
 
   # GET /admin/order_details/new

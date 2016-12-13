@@ -10,6 +10,7 @@ class Admin::OrdersController < Admin::BaseController
   # GET /admin/orders/1
   # GET /admin/orders/1.json
   def show
+    @admin_order_details = OrderDetail.all
   end
 
   # GET /admin/orders/new
