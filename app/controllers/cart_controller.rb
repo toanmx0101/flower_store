@@ -10,11 +10,9 @@ class CartController < ApplicationController
 
 
 	def checkout_step1
-
 		if logged_in?
 				redirect_to	(checkout_step2_path)
 		end
-
 	end
 
 	def add_address
@@ -56,7 +54,6 @@ class CartController < ApplicationController
 			if (session[:current_cart][0] == 1)
 				session[:current_cart].clear
 			end
-			binding.pry
 			pr_id = params[:session][:product_id]
 			type_product = params[:session][:type_product]
 			quantity = params[:session][:quantity]

@@ -11,43 +11,47 @@
 		</div>
 		<div class="panel-collapse collapse in" id="collapse-checkout-option" aria-expanded="true" style="">
 			<div class="panel-body">
-				
+					
 					<div class="table-responsive">
 						<table class="table table-bordered table-hover">
 							<thead>
 								<tr>
 									<td class="text-left">Product Name</td>
-									<td class="text-left">Model</td>
+									<td class="text-left">Code</td>
 									<td class="text-right">Quantity</td>
-									<td class="text-right">Unit Price</td>
 									<td class="text-right">Total</td>
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
-									<td class="text-left name"><a href="">Autumn Shades Perfect Gift</a><br>
-									&nbsp;<small> - Size: Small</small><br>
-									&nbsp;<small> - Color: red</small>
-									</td>
+							<% total = 0%>
+							<% session[:current_cart].each do |key ,value| %>	
+								<% product_detail 	= ProductDetail.find(key) %>
+								<% product = Product.find(product_detail.product_id) %>	
+								<tbody>
+									<tr>
+										<td class="text-left name"><a href=""><%= product.name%></a><br>
+										&nbsp;<small> - Size: <%= product_detail.type_product %></small><br>
+										</td>
 
-									<td class="text-left">Deluxe</td>
-									<td class="text-right">1</td>
-									<td class="text-right tx-price">$40.60</td>
-									<td class="text-right tx-price">$40.60</td>
-								</tr>
-							</tbody>
+										<td class="text-left"> <%= product_detail.code %> </td>
+										<td class="text-right"><%= value %></td>
+										<td class="text-right tx-price">$<%= value*(product_detail.price*(1 - product_detail.discount/100)) %> </td>
+									</tr>
+								</tbody>
+								<% total =  total + value*(product_detail.price*(1 - product_detail.discount/100)) %>
+							<% end %>	
+
 							<tfoot>
 								<tr>
-									<td colspan="4" class="text-right"><strong>Sub-Total:</strong></td>
-									<td class="text-right tx-price">$40.60</td>
+									<td colspan="3" class="text-right"><strong>Sub-Total:</strong></td>
+									<td class="text-right tx-price">$<%= total.round(2) %></td>
 								</tr>
 								<tr>
-									<td colspan="4" class="text-right"><strong>Shipping Rate:</strong></td>
+									<td colspan="3" class="text-right"><strong>Shipping Rate:</strong></td>
 									<td class="text-right tx-price">$1.00</td>
 								</tr>
 								<tr>
-									<td colspan="4" class="text-right"><strong>Total:</strong></td>
-									<td class="text-right tx-price">$45.60</td>
+									<td colspan="3" class="text-right"><strong>Total:</strong></td>
+									<td class="text-right tx-price">$ <%= (total +1).round(2) %> </td>
 								</tr>
 							</tfoot>
 						</table>
