@@ -5,6 +5,7 @@ class Admin::BillsController < Admin::BaseController
   # GET /admin/bills.json
   def index
     @admin_bills =  Bill.all
+    @admin_product_details = ProductDetail.all
   end
 
   # GET /admin/bills/1
@@ -43,8 +44,8 @@ class Admin::BillsController < Admin::BaseController
   def update
     respond_to do |format|
       if @admin_bill.update(admin_bill_params)
-        format.html { redirect_to @admin_bill, notice: 'Bill was successfully updated.' }
-        format.json { render :show, status: :ok, location: @admin_bill }
+        format.html { redirect_to admin_bills_url, notice: 'Bill was successfully updated.' }
+        format.json { render :show, status: :ok, location: admin_bills_url }
       else
         format.html { render :edit }
         format.json { render json: @admin_bill.errors, status: :unprocessable_entity }

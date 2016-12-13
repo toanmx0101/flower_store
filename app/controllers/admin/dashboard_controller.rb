@@ -8,5 +8,8 @@ class Admin::DashboardController < Admin::BaseController
 		 # @products = Product.where(category_id: 1).all
 		@user = User.where("created_at >= ?", 1.week.ago.utc).limit(8)
 		@number_user_on_week = User.where("created_at >= ?", 1.week.ago.utc).limit(8).count
+
+
+		@review = Review.where("created_at >= ?", 1.week.ago.utc).limit(8)
 	end
 end

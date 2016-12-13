@@ -13,11 +13,13 @@ class CartController < ApplicationController
 
 
 	def checkout_step1
-
-		if logged_in?
-				redirect_to	(checkout_step2_path)
-		end
-
+		if (session[:current_cart]=={} || session[:current_cart].nil?)
+			redirect_to (shoppingcart_path)
+		else
+			if logged_in?
+					redirect_to	(checkout_step2_path)
+			end
+		end	
 	end
 
 	def add_address
@@ -56,6 +58,10 @@ class CartController < ApplicationController
 
 	private
 		def add_product 		
+
+			if (session[:current_cart]["0"] == 1)
+				session[:current_cart].clear
+			end
 			pr_id = params[:session][:product_id]
 			type_product = params[:session][:type_product]
 			quantity = params[:session][:quantity]
